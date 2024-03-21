@@ -30,7 +30,7 @@ export default defineComponent({
 <style lang="scss">
 header {
   height: 465px;
-  background: linear-gradient(180deg, #040300 0%, #121318 100%);
+  background: linear-gradient(0deg, #040300 0%, #121318 100%);
   display: flex;
 }
 

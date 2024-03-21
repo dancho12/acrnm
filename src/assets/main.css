@@ -1,0 +1,30 @@
+/* @import './base.css'; */
+
+body {
+    min-height: 100vh;
+    background: #080808;
+    color: #FFF;
+    font-family: 'Montserrat';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 0;
+}
+
+h3 {
+    font-weight: 700;
+    font-size: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 18px;
+    }
+    h3 {
+        font-size: 20px;
+    }
+    p {
+        padding: 0px 10px 0px 10px;
+    }
+}

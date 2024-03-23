@@ -5,12 +5,13 @@ body {
     background: #040300;
     color: #FFF;
     font-family: "Montserrat Alternates", sans-serif;
-    ;
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     margin: 0;
+    position: relative;
+    overflow-x: hidden;
 }
 
 h3 {

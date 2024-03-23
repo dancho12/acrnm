@@ -6,8 +6,11 @@
       <RouterLink to="/contact">Контакты</RouterLink>
     </nav>
   </header>
+  <div class="top-gradient"></div>
+
 
   <RouterView />
+  <div class="bottom-gradient"></div>
 </template>
 
 <script>
@@ -28,21 +31,33 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-header {
+.top-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 465px;
   background: linear-gradient(0deg, #040300 0%, #121318 100%);
-  display: flex;
+  z-index: -3;
+}
+
+.bottom-gradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 465px;
+  background: linear-gradient(180deg, #040300 0%, #121318 100%);
+  z-index: -3;
 }
 
 nav {
   margin-left: auto;
   margin-right: auto;
-  margin-top: 20px;
+  padding-top: 20px;
   width: 500px;
   display: flex;
   justify-content: space-between;
-
-
 
   & a {
     font-weight: 600;
@@ -51,5 +66,21 @@ nav {
     color: #fff;
     text-decoration: none;
   }
+}
+
+main {
+  width: 1280px;
+  margin: 0 auto;
+}
+
+h2 {
+  font-weight: 500;
+  font-size: 18px;
+}
+
+p {
+  font-weight: 275;
+  font-size: 15px;
+  line-height: 123%;
 }
 </style>

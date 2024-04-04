@@ -1,6 +1,7 @@
 <template>
   <main>
     <RouterLink to="/"><img class="logo-all" src="@/assets/acrnm-logo-white-pattern.png" alt=""></RouterLink>
+    <RouterLink to="/"><img class="logo-all-mob" src="@/assets/acrnm-logo-mob.png" alt=""></RouterLink>
     <div class="title-block">
       <h3>Наши работы</h3>
       <span class="subtitle">Всё самое крутое что мы делали</span>
@@ -9,7 +10,7 @@
         без лишней воды.</p>
     </div>
     <div class="macaroni-container"><img id="macaroni2" src="@/assets/macaroni2.png" alt=""></div>
-    <div class="content-container">
+    <div class="content-container marg-ar">
 
       <div class="item">
         <div class="description">
@@ -184,5 +185,37 @@
   font-size: 15px;
   line-height: 149%;
   text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .content-container {
+
+    margin-top: 45px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+
+    .item {
+
+      .pic {
+        height: 432px;
+      }
+
+      &:nth-child(2n) {
+        flex-direction: column;
+      }
+    }
+  }
+
+  .last-info {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: auto;
+    font-size: 12px;
+    line-height: 149%;
+  }
 }
 </style>

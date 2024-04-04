@@ -1,6 +1,7 @@
 <template>
     <main>
         <RouterLink to="/"><img class="logo-all" src="@/assets/acrnm-logo-white-pattern.png" alt=""></RouterLink>
+        <RouterLink to="/"><img class="logo-all-mob" src="@/assets/acrnm-logo-mob.png" alt=""></RouterLink>
         <div class="title-block">
             <h3>Контакты & Вакансии</h3>
             <span class="subtitle">Свяжитесь по работе с нами или на нас</span>
@@ -140,7 +141,7 @@ h3 {
             & .card {
                 margin: 0 auto;
                 width: 350px;
-                backdrop-filter: blur(80px);
+                backdrop-filter: blur(15px);
                 border: solid 2px #0f0;
                 box-sizing: border-box;
                 border-radius: 20px;
@@ -190,5 +191,40 @@ h3 {
     opacity: 0.6;
     width: 100vw;
     z-index: -2;
+}
+
+@media screen and (max-width: 768px) {
+
+    .content-block {
+        display: flex;
+        justify-content: unset;
+        flex-direction: column;
+        gap: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+
+        & h3 {
+            margin-top: 50px;
+            margin-bottom: 30px;
+        }
+
+
+        .vacancies {
+            h3 {
+                text-align: left;
+            }
+
+
+            & .cards {
+
+
+                & .card {
+                    margin: unset;
+                    width: inherit;
+                }
+            }
+        }
+
+    }
 }
 </style>

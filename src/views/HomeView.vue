@@ -13,7 +13,7 @@
         мы получаем наилучший результат.</p>
     </div>
 
-    <div class="what-we-create">
+    <div class="what-we-create marg-ar">
       <h2>Что мы делаем</h2>
       <span class="sub">Вместе или по отдельности</span>
       <div class="cards">
@@ -52,7 +52,7 @@
       </Carousel>
     </div>
     <div class="macaroni-container"><img id="macaroni2" src="@/assets/macaroni2.png" alt=""></div>
-    <div class="showreel">
+    <div class="showreel marg-ar">
       <p>Ну и само собой - наш шоурил:</p>
       <div class="video play" @click="open_video_on_full('https://www.youtube.com/embed/r3i-5_7ZwFA')">
         <img src="@/assets/photos/comp/showreel.jpg" alt="showreel">
@@ -60,7 +60,7 @@
       <span class="title">ACRNM LAB Showreel 2023</span>
     </div>
 
-    <div class="how-it-works">
+    <div class="how-it-works marg-ar">
       <h3>Как всё это работает</h3>
       <span class="subtitle">Весь процесс от А до Я</span>
       <ul>
@@ -201,7 +201,7 @@ export default defineComponent({
     const breakpoints = Object({
 
       0: {
-        itemsToShow: 1,
+        itemsToShow: 1.5,
       },
       768: {
         itemsToShow: 2.5,
@@ -280,24 +280,25 @@ export default defineComponent({
 
   & h2 {
     text-align: center;
+    margin-bottom: 2px
   }
 
   & .sub {
-    font-size: 15px;
+    font-weight: 200;
+    font-size: 9px;
     text-align: center;
     display: block;
   }
 
   & .cards {
     margin-top: 20px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    display: flex;
+    justify-content: space-between;
 
     & .card {
-      margin: 0 auto;
       width: 350px;
       height: 98px;
-      backdrop-filter: blur(80px);
+      backdrop-filter: blur(15px);
       border: solid 2px #0f0;
       box-sizing: border-box;
       border-radius: 20px;
@@ -446,7 +447,7 @@ export default defineComponent({
 
   ul {
     text-align: left;
-    font-weight: 400;
+    font-weight: 300;
     font-size: 15px;
     line-height: 149%;
     margin: 0 auto;
@@ -506,6 +507,53 @@ export default defineComponent({
     .whatsapp {
       mask-image: url(@/assets/icons/whatsapp.svg);
       -webkit-mask-image: url(@/assets/icons/whatsapp.svg);
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main-text {
+    width: auto;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .what-we-create {
+
+    & .cards {
+      flex-direction: column;
+      gap: 10px;
+
+      .card {
+        width: auto;
+      }
+    }
+  }
+
+  .cases {
+
+    & .item {
+      height: 335px;
+      margin-left: 11px;
+      margin-right: 11px;
+    }
+
+    p {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+  }
+
+  .showreel {
+    .video {
+      height: 155px;
+    }
+  }
+
+  .how-it-works {
+    ul {
+      font-size: 12px;
+      width: inherit;
     }
   }
 }

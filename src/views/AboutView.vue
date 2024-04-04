@@ -1,6 +1,7 @@
 <template>
   <main>
     <RouterLink to="/"><img class="logo-all" src="@/assets/acrnm-logo-white-pattern.png" alt=""></RouterLink>
+    <RouterLink to="/"><img class="logo-all-mob" src="@/assets/acrnm-logo-mob.png" alt=""></RouterLink>
     <div class="title-block">
       <h3>Кто мы такие</h3>
       <span class="subtitle">И почему настолько крутые, насколько рассказываем</span>
@@ -74,5 +75,16 @@ h3 {
     text-decoration: none;
   }
 
+}
+
+@media screen and (max-width: 768px) {
+  .content {
+    width: auto;
+    margin: 20px;
+
+    p {
+      font-size: 12px;
+    }
+  }
 }
 </style>

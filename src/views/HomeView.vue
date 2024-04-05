@@ -6,7 +6,8 @@
       <span class="logo-text">Аудио-Визуальная Лаборатория<br><br>Графика и Звук</span>
     </div>
 
-    <div class="macaroni-container"><img id="macaroni1" src="@/assets/macaroni1-min.png" alt=""></div>
+    <div class="macaroni-container"><img id="macaroni1" src="@/assets/macaroni1-min.png" alt=""><img id="macaroni1-mob"
+        src="@/assets/macaroni1-mob.png" alt=""></div>
     <div class="main-text">
       <h2>Коротко о главном</h2>
       <p>Мы занимаемся созданием аудио и CG-графики для рекламы и кино. Благодаря точечному подходу к этим двум сферам -
@@ -51,7 +52,9 @@
         </template>
       </Carousel>
     </div>
-    <div class="macaroni-container"><img id="macaroni2" src="@/assets/macaroni2.png" alt=""></div>
+    <div class="macaroni-container"><img id="macaroni2" src="@/assets/macaroni2.png" alt="">
+      <img id="macaroni2-mob" src="@/assets/macaroni2-mob.png" alt="">
+    </div>
     <div class="showreel marg-ar">
       <p>Ну и само собой - наш шоурил:</p>
       <div class="video play" @click="open_video_on_full('https://www.youtube.com/embed/r3i-5_7ZwFA')">
@@ -90,7 +93,7 @@
 
       <span class="title">MUSIC, SOUNDDESIGN & CG SWOWCASES</span>
     </div>
-
+    <div class="macaroni-container"><img id="macaroni3-mob" src="@/assets/macaroni3-mob.png" alt=""></div>
     <div class="contact-us">
       <span class="title">Связаться с нами</span>
       <span class="tel">+7 (915) 304-87-71</span>
@@ -260,6 +263,10 @@ export default defineComponent({
   z-index: -2;
 }
 
+#macaroni1-mob {
+  display: none;
+}
+
 #macaroni2 {
   position: absolute;
   top: -4vw;
@@ -268,6 +275,14 @@ export default defineComponent({
   opacity: 0.6;
   width: 100vw;
   z-index: -2;
+}
+
+#macaroni2-mob {
+  display: none;
+}
+
+#macaroni3-mob {
+  display: none;
 }
 
 .main-text {
@@ -555,6 +570,48 @@ export default defineComponent({
       font-size: 12px;
       width: inherit;
     }
+  }
+
+  #macaroni1 {
+    display: none;
+  }
+
+  #macaroni1-mob {
+    display: unset;
+    position: absolute;
+    top: -248px;
+    left: 0;
+    mix-blend-mode: lighten;
+    opacity: 0.6;
+    width: 1200px;
+    z-index: -2;
+  }
+
+  #macaroni2 {
+    display: none;
+  }
+
+  #macaroni2-mob {
+    display: unset;
+    position: absolute;
+    top: -400px;
+    left: 0;
+    mix-blend-mode: lighten;
+    opacity: 0.6;
+    width: 100vw;
+    z-index: -2;
+    scale: 1.2;
+  }
+
+  #macaroni3-mob {
+    display: unset;
+    position: absolute;
+    top: -579px;
+    left: 0;
+    mix-blend-mode: lighten;
+    opacity: 0.6;
+    z-index: -2;
+    height: 1000px;
   }
 }
 </style>

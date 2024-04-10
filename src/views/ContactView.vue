@@ -7,7 +7,6 @@
             <span class="subtitle">Свяжитесь по работе с нами или на нас</span>
         </div>
 
-        <div class="macaroni-container"><img id="macaroni2" src="@/assets/macaroni2.png" alt=""></div>
         <div class="content-block">
             <div class="contact">
                 <h3>Контакты</h3>
@@ -16,13 +15,13 @@
                     <span>Телефон: <strong>+7 (915) 304-87-71</strong></span>
                     <span>Мессенджеры и соцсети:</span>
                     <div class="icons">
-                        <a href="http://" target="_blank" rel="noopener noreferrer">
+                        <a href="https://t.me/yakov_ovven" target="_blank" rel="noopener noreferrer">
                             <div class="icon tele"></div>
                         </a>
-                        <a href="http://" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.instagram.com/acrnm.mus/" target="_blank" rel="noopener noreferrer">
                             <div class="icon insta"></div>
                         </a>
-                        <a href="http://" target="_blank" rel="noopener noreferrer">
+                        <a href="https://wa.me/+79153048771" target="_blank" rel="noopener noreferrer">
                             <div class="icon whatsapp"></div>
                         </a>
                     </div>
@@ -180,17 +179,6 @@ h3 {
 
         }
     }
-}
-
-
-#macaroni2 {
-    position: absolute;
-    top: -600px;
-    left: calc(50% - 50vw);
-    mix-blend-mode: lighten;
-    opacity: 0.6;
-    width: 100vw;
-    z-index: -2;
 }
 
 @media screen and (max-width: 768px) {

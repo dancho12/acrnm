@@ -9,7 +9,6 @@
         и отдельных наших специалистов, рассказы о том, как они создавались, и то, что любят все - красивые картинки
         без лишней воды.</p>
     </div>
-    <div class="macaroni-container"><img id="macaroni2" src="@/assets/macaroni2.png" alt=""></div>
     <div class="content-container marg-ar">
 
       <div class="item">
@@ -96,16 +95,6 @@
 </template>
 
 <style lang="scss" scoped>
-#macaroni2 {
-  position: absolute;
-  top: -600px;
-  left: calc(50% - 50vw);
-  mix-blend-mode: lighten;
-  opacity: 0.6;
-  width: 100vw;
-  z-index: -2;
-}
-
 .content-container {
 
   margin-top: 177px;

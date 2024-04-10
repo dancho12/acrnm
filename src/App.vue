@@ -1,5 +1,6 @@
 <template>
   <header>
+
     <nav class="desk">
       <RouterLink to="/portfolio">Работы</RouterLink>
       <RouterLink to="/about">О нас</RouterLink>
@@ -11,6 +12,12 @@
       <RouterLink to="/about">О нас</RouterLink>
     </nav>
   </header>
+  <!-- <div id="back">
+    <div class="left"></div>
+    <div class="right"></div>
+    <img src="@/assets/background-gradient.jpg" alt="">
+  </div> -->
+
   <div class="top-gradient"></div>
 
 
@@ -40,6 +47,44 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
+#back {
+  position: absolute;
+  top: -230px;
+  left: calc(50% - 1024px);
+  width: 2048px;
+
+  opacity: 0.6;
+  z-index: -2;
+  display: flex;
+
+  background-image: url(@/assets/background-gradient.jpg);
+  height: calc(100% + 230px);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  mix-blend-mode: lighten;
+
+  .left,
+  .right {
+    width: 100px;
+    height: 100%;
+  }
+
+  .left {
+    margin-left: 0px;
+    margin-right: auto;
+
+    background: #000;
+    background: linear-gradient(90deg, rgba(4, 3, 0, 1) 0%, rgba(4, 3, 0, 0) 100%);
+  }
+
+  .right {
+    margin-left: auto;
+    margin-right: 0px;
+    background: linear-gradient(-90deg, rgba(4, 3, 0, 1) 0%, rgba(4, 3, 0, 0) 100%);
+  }
+}
+
 .router-link-active {
   font-weight: 200 !important;
 }
@@ -47,8 +92,8 @@ export default defineComponent({
 .top-gradient {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: calc(50% - 1024px);
+  width: 2048px;
   height: 465px;
   background: linear-gradient(0deg, #040300 0%, #121318 100%);
   z-index: -3;
@@ -57,8 +102,8 @@ export default defineComponent({
 .bottom-gradient {
   position: absolute;
   bottom: 0;
-  left: 0;
-  width: 100%;
+  left: calc(50% - 1024px);
+  width: 2048px;
   // height: 465px;
   height: 20vh;
   background: linear-gradient(180deg, #040300 0%, #121318 100%);
@@ -97,9 +142,13 @@ h2 {
 }
 
 p {
-  font-weight: 275;
+  font-weight: 200;
   font-size: 15px;
   line-height: 123%;
+
+  strong {
+    font-weight: 500;
+  }
 }
 
 
@@ -124,6 +173,23 @@ p {
 }
 
 @media screen and (max-width: 768px) {
+
+  #back {
+    position: absolute;
+    top: 0;
+    left: calc(50% - 575px);
+    width: 1150px;
+    background-image: url(@/assets/background-gradient-mob.jpg);
+
+    .left,
+    .right {
+      display: none;
+    }
+
+  }
+
+
+
   .full-screen-video {
     cursor: pointer;
     position: fixed;
@@ -266,8 +332,8 @@ p {
 @media screen and (max-width: 768px) {
 
   .marg-ar {
-    margin-left: 20px !important;
-    margin-right: 20px !important;
+    margin-left: 10px !important;
+    margin-right: 10px !important;
   }
 
   main {

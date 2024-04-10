@@ -11,7 +11,8 @@ body {
     line-height: normal;
     margin: 0;
     position: relative;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
+    scrollbar-gutter: stable;
 }
 
 #app {
@@ -19,6 +20,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: inherit;
+    position: relative;
 }
 
 h3 {
@@ -33,6 +35,24 @@ h3 {
     }
 }
 
-.macaroni-container {
-    position: relative;
+
+/* width */
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    background: #ffffff;
+    border-radius: 5px;
 }

@@ -6,7 +6,6 @@
       <h3>Кто мы такие</h3>
       <span class="subtitle">И почему настолько крутые, насколько рассказываем</span>
     </div>
-    <div class="macaroni-container"><img id="macaroni2" src="@/assets/macaroni2.png" alt=""></div>
 
     <div class="content">
       <p>По сути, Лаборатория Акроним является эдаким творческим кластером, состоящим из друзей и коллег из сферы кино и
@@ -44,16 +43,6 @@ import { RouterLink, RouterView, useRouter, useRoute } from 'vue-router'
 h3 {
   text-align: center;
   margin-bottom: 6px;
-}
-
-#macaroni2 {
-  position: absolute;
-  top: -600px;
-  left: calc(50% - 50vw);
-  mix-blend-mode: lighten;
-  opacity: 0.6;
-  width: 100vw;
-  z-index: -2;
 }
 
 .content {

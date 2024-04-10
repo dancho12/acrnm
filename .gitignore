@@ -27,3 +27,5 @@ coverage
 *.sln
 *.sw?
 *.mp4
+
+.firebase/*

@@ -23,6 +23,21 @@
           "destination": "/index.html"
         }
       ]
+    },
+    {
+      "site": "acrnm-test",
+      "public": "./dist",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
     }
   ]
 }

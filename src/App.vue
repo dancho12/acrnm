@@ -1,353 +1,154 @@
 <template>
-  <main>
-    <div class="video-block">
-      <video autoplay muted loop playsinline class="video-block-mp4">
-        <source src="./assets/videoplayback.mp4" type="video/mp4">
-      </video>
-      <img class="video-block-logo" src="./assets/acrnm logo.png" alt="logo">
-    </div>
+  <header>
+
+    <nav class="desk">
+      <RouterLink to="/portfolio">Работы</RouterLink>
+      <RouterLink to="/about">О нас</RouterLink>
+      <RouterLink to="/contact">Контакты</RouterLink>
+    </nav>
+    <nav class="mob">
+      <RouterLink to="/contact">Контакты</RouterLink>
+      <RouterLink to="/portfolio">Работы</RouterLink>
+      <RouterLink to="/about">О нас</RouterLink>
+    </nav>
+  </header>
+  <!-- <div id="back">
+    <div class="left"></div>
+    <div class="right"></div>
+    <img src="@/assets/background-gradient.jpg" alt="">
+  </div> -->
+
+  <div class="top-gradient"></div>
 
 
-
-    <div class="text-block gradient">
-      <div class="text-block-content">
-        <h3>ACRNM</h3>
-        <p>Мы специализируемся на создании музыкального и звукового сопровождения к фильмам, сериалам и рекламе.<br><br>
-          Совместно с талантливыми звукорежиссёрами и саунддизайнерами — мы проводим проект от начала и до конца.<br><br>
-          И вот несколько из них:</p>
-      </div>
-    </div>
-
-    <div>
-      <Carousel :wrap-around="true" :breakpoints="breakpoints" :autoplay="3000" ref="myCarousel">
-        <Slide v-for="slide in  photos1 " :key="slide">
-          <a :href="slide.url" target="_blank" rel="noopener noreferrer" class="carousel__item"><img
-              :src="get_url(slide.img)" alt=""></a>
-        </Slide>
-
-        <template #addons>
-          <Navigation />
-        </template>
-      </Carousel>
-    </div>
-    <div class="text-block gradient">
-      <div class="text-block-content">
-        <h3>СТИЛЬ</h3>
-        <p>Каждая работа уникальна, и приносит что-то новое в мир творчества или коммерции.<br><br> Однако именно единство
-          стиля создаёт впечатление целостности происходящего.<br><br> И у нас оно есть.</p>
-      </div>
-    </div>
-    <div class="photo-block">
-      <iframe src="https://www.youtube.com/embed/r3i-5_7ZwFA">
-      </iframe>
-      <span class="photo-block-subtitle">MUSIC AND SOUNDDESIGN SHOWREEL 2023</span>
-    </div>
-    <div class="text-block gradient">
-      <div class="text-block-content">
-        <h3>МУЗЫКА & САУНД-ДИЗАЙН</h3>
-        <p>Почти всегда то что мы видим - нераздельно с тем, что мы слышим.<br><br>Звук должен быть органичен картинке и
-          самому себе, поэтому мы всегда стараемся обращаться к нашим звукооператорам и инженерам, чтобы провести звук от
-          площадки до показа. </p>
-      </div>
-    </div>
-    <div class="photos-block">
-      <div class="photos-block-elem" @click="open_video_on_full('https://www.youtube.com/embed/qIFahO7KTSQ')">
-        <img src="./assets/photos/comp/AD1.jpg" alt="music_and_sound">
-      </div>
-      <div class="photos-block-elem" @click="open_video_on_full('https://www.youtube.com/embed/uNZqu9jSbAE')">
-        <img src="./assets/photos/comp/SHORT.jpg" alt="music_and_sound">
-      </div>
-      <div class="photos-block-elem" @click="open_video_on_full('https://www.youtube.com/embed/23SqcHIGDxg')">
-        <img src="./assets/photos/comp/AD2.jpg" alt="music_and_sound">
-      </div>
-      <span class="photo-block-subtitle">MUSIC, SOUNDDESIGN & VOICEOVER SHOWCASES</span>
-    </div>
-    <div class="text-block gradient">
-      <div class="text-block-contacts">
-        <h3>КОНТАКТЫ</h3>
-        <span>+7 915 304 87 71</span>
-        <span>pr.acrnm@gmail.com</span>
-        <div class="text-block-contacts-social">
-          <a href="https://www.instagram.com/acrnm.mus/" target="_blank" rel="noopener noreferrer">
-            <img src="./assets/icons/Insta.svg" alt="">
-          </a>
-          <a href="https://t.me/yakov_ovven" target="_blank" rel="noopener noreferrer">
-            <img src="./assets/icons/tele.svg" alt="">
-          </a>
-          <a href="https://wa.me/+79153048771" target="_blank" rel="noopener noreferrer">
-            <img src="./assets/icons/whatsapp.svg" alt="">
-          </a>
-        </div>
-      </div>
-    </div>
-  </main>
-
-  <div class="full-screen-video" v-if="open_video_full" @click="close_video_on_full()">
-    <iframe :src="open_video_full_url" @click.stop.prevent="">
-    </iframe>
+  <RouterView />
+  <div class="copyright">
+    <span>ACRNM LAB {{ new Date().getFullYear() }}</span>
+    <span>CREATED BY <a href="http://daniiru.jp" target="_blank" rel="noopener noreferrer">DANIIRU</a></span>
+  </div>
+  <div class="bottom-gradient">
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+
+import { RouterLink, RouterView, useRouter, useRoute } from 'vue-router'
 import { defineComponent, ref } from 'vue'
-import { Carousel, Navigation, Slide } from 'vue3-carousel'
-import 'vue3-carousel/dist/carousel.css'
 
 const myCarousel = ref(null)
 
 export default defineComponent({
   name: 'App',
-  components: {
-    Carousel,
-    Slide,
-    Navigation,
-  },
   setup() {
 
 
-    const open_video_full = ref(false);
-    const open_video_full_url = ref('');
-
-    function open_video_on_full(url) {
-
-      open_video_full_url.value = url;
-      open_video_full.value = true;
-    }
-    function close_video_on_full() {
-
-      open_video_full_url.value = '';
-      open_video_full.value = false;
-    }
-
-    const photos1 = [
-      {
-        img: 'atomic.jpg',
-        url: 'https://www.youtube.com/watch?v=7x2Y3Uq8Mko'
-      },
-      {
-        img: 'elk.jpg',
-        url: 'https://www.youtube.com/watch?v=alBh2lwpQyU'
-      },
-      {
-        img: 'oldmen_rule.jpg',
-        url: 'https://www.youtube.com/watch?v=lA8lNvTsde0'
-      },
-      {
-        img: 'organic.jpg',
-        url: 'https://egorsubbotin.tilda.ws/organic'
-      },
-    ]
-
-    function get_url(img) {
-      return new URL(`./assets/photos/comp/${img}`, import.meta.url).href;
-    }
-
-    const breakpoints = Object({
-
-      0: {
-        itemsToShow: 1,
-      },
-      768: {
-        itemsToShow: 2.5,
-      },
-      1024: {
-        itemsToShow: 3,
-      },
-      1280: {
-        itemsToShow: 3.5,
-      },
-      1920: {
-        itemsToShow: 4,
-      },
-    })
-
-    return { photos1, get_url, breakpoints, open_video_full, open_video_full_url, open_video_on_full, close_video_on_full }
+    return {}
   }
 })
 </script>
 <style lang="scss">
-.carousel__item {
-  cursor: pointer;
-  height: 75vh;
+#back {
+  position: absolute;
+  top: -230px;
+  left: calc(50% - 1024px);
+  width: 2048px;
 
-  & img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-}
-
-
-main {
-  // position: relative;
-  width: 100%;
-  height: 100%;
+  opacity: 0.6;
+  z-index: -2;
   display: flex;
-  flex-direction: column;
-}
 
-.video-block {
-  height: 70vh;
-  width: 100%;
-  position: relative;
-  display: grid;
-  place-items: center;
+  background-image: url(@/assets/background-gradient.jpg);
+  height: calc(100% + 230px);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  mix-blend-mode: lighten;
 
-  &-logo {
-    width: 500px;
-    z-index: 1;
-  }
-
-  &-mp4 {
-    position: absolute;
-    z-index: 0;
-    object-fit: cover;
-    width: 100%;
+  .left,
+  .right {
+    width: 100px;
     height: 100%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: 0;
+  }
 
-    &::-webkit-media-controls {
-      display: none !important;
-    }
+  .left {
+    margin-left: 0px;
+    margin-right: auto;
+
+    background: #000;
+    background: linear-gradient(90deg, rgba(4, 3, 0, 1) 0%, rgba(4, 3, 0, 0) 100%);
+  }
+
+  .right {
+    margin-left: auto;
+    margin-right: 0px;
+    background: linear-gradient(-90deg, rgba(4, 3, 0, 1) 0%, rgba(4, 3, 0, 0) 100%);
   }
 }
 
-@media screen and (max-width: 768px) {}
+.router-link-active {
+  font-weight: 200 !important;
+}
 
+.top-gradient {
+  position: absolute;
+  top: 0;
+  left: calc(50% - 1024px);
+  width: 2048px;
+  height: 465px;
+  background: linear-gradient(0deg, #040300 0%, #121318 100%);
+  z-index: -3;
+}
 
-.text-block {
-  width: 100%;
-  min-height: 400px;
-  text-align: center;
+.bottom-gradient {
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 1024px);
+  width: 2048px;
+  // height: 465px;
+  height: 20vh;
+  background: linear-gradient(180deg, #040300 0%, #121318 100%);
+  z-index: -3;
+}
+
+nav.desk {
   margin-left: auto;
   margin-right: auto;
-
-
+  padding-top: 20px;
+  width: 500px;
   display: flex;
+  justify-content: space-between;
 
-  &-content {
-    width: 750px;
-    margin: auto;
-  }
-
-  &-contacts {
-    display: flex;
-    width: 750px;
-    margin: auto;
-    flex-direction: column;
-
-    & h3 {
-      font-size: 26px;
-    }
-
-    & span {
-      font-size: 24px;
-    }
-
-    &-social {
-      margin-top: 37px;
-      display: flex;
-      gap: 28px;
-      margin-left: auto;
-      margin-right: auto;
-
-      & img {
-        width: 48px;
-      }
-    }
-  }
-}
-
-.photo-block,
-.photos-block {
-
-  position: relative;
-
-  &-subtitle {
-    color: #909090;
-    text-align: center;
+  & a {
+    font-weight: 400;
     font-size: 14px;
-    font-style: normal;
-    width: 400px;
-    position: absolute;
-    bottom: -30px;
-    left: calc(50% - 200px);
+    line-height: 97%;
+    color: #fff;
+    text-decoration: none;
   }
 }
 
-.photo-block {
-  height: 70vh;
-  display: flex;
-
-  & img {
-    margin: auto;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  & iframe {
-    margin: auto;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border: 0;
-  }
+nav.mob {
+  display: none;
 }
 
-.photos-block {
-  height: 80vh;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-
-  &-elem {
-    position: relative;
-    height: inherit;
-    cursor: pointer;
-
-    & img {
-      margin: auto;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    &::after {
-      content: '';
-      position: absolute;
-      top: calc(50% - 75px);
-      left: calc(50% - 75px);
-      min-width: 150px;
-      min-height: 150px;
-      max-width: 150px;
-      max-height: 150px;
-      mask-image: url(@/assets/icons/triangle-play.svg);
-      -webkit-mask-image: url(@/assets/icons/triangle-play.svg);
-      background-color: white;
-      z-index: 100;
-      opacity: 0.5;
-    }
-
-    &:hover {
-      &::after {
-        opacity: 0.9;
-      }
-
-    }
-
-
-  }
+main {
+  width: 1200px;
+  margin: 0 auto;
 }
 
+h2 {
+  font-weight: 400;
+  font-size: 18px;
+}
 
+p {
+  font-weight: 200;
+  font-size: 15px;
+  line-height: 123%;
 
-.gradient {
-  background: linear-gradient(180deg, #0C0D11 0%, #080808 70.31%, #0B0B0F 100%);
+  strong {
+    font-weight: 500;
+  }
 }
 
 
@@ -371,99 +172,23 @@ main {
   }
 }
 
-
-.carousel__prev,
-.carousel__next {
-  user-select: none;
-
-  & .carousel__icon {
-    display: none;
-  }
-
-  width: 90px;
-  height: 100%;
-
-
-  &::after {
-    position: absolute;
-    top: calc(50% - 44px);
-    content: '';
-    min-width: 46px;
-    min-height: 88px;
-    max-width: 46px;
-    max-height: 88px;
-    mask-image: url(@/assets/icons/arrow.svg);
-    -webkit-mask-image: url(@/assets/icons/arrow.svg);
-    background-repeat: no-repeat;
-    background-color: white;
-  }
-
-  margin: unset !important;
-  padding: 0 10px;
-
-}
-
-.carousel__next {
-  &::after {
-    transform: rotate(180deg);
-  }
-
-  background: linear-gradient(90deg, #0c0d1100 0%, #0b0b0f 100%);
-}
-
-.carousel__prev {
-  background: linear-gradient(-90deg, #0c0d1100 0%, #0b0b0f 100%);
-}
-
-
 @media screen and (max-width: 768px) {
-  .video-block {
-    &-logo {
-      width: 90vw;
+
+  #back {
+    position: absolute;
+    top: 0;
+    left: calc(50% - 575px);
+    width: 1150px;
+    background-image: url(@/assets/background-gradient-mob.jpg);
+
+    .left,
+    .right {
+      display: none;
     }
+
   }
 
-  .photo-block {
-    height: 230px;
-  }
 
-  .photos-block {
-    height: unset;
-    grid-template-columns: repeat(1, 1fr);
-
-    &-elem {
-      height: 230px;
-
-      &::after {
-
-        top: calc(50% - 60px);
-        left: calc(50% - 60px);
-        min-width: 120px;
-        min-height: 120px;
-        max-width: 120px;
-        max-height: 120px;
-
-      }
-    }
-  }
-
-  .photo-block,
-  .photos-block {
-
-    position: relative;
-
-    &-subtitle {
-      color: #909090;
-      text-align: center;
-      font-size: 14px;
-      font-style: normal;
-      width: 350px;
-      position: absolute;
-      bottom: -50px;
-      height: 40px;
-      left: calc(50% - 175px);
-    }
-  }
 
   .full-screen-video {
     cursor: pointer;
@@ -484,34 +209,224 @@ main {
       height: 30%;
     }
   }
+}
 
-  .carousel__prev,
-  .carousel__next {
-    width: 70px;
 
-    &::after {
-      top: calc(50% - 22px);
-      min-width: 23px;
-      min-height: 44px;
-      max-width: 23px;
-      max-height: 44px;
-    }
+.carousel__prev,
+.carousel__next {
+  user-select: none;
+
+
+  & .carousel__icon {
+    display: none;
   }
+
+
+
+  &::after {
+    position: absolute;
+    top: calc(50% - 26px);
+    content: '';
+    min-width: 52px;
+    min-height: 52px;
+    max-width: 52px;
+    max-height: 52px;
+    mask-image: url(@/assets/icons/arrow.svg);
+    -webkit-mask-image: url(@/assets/icons/arrow.svg);
+    background-repeat: no-repeat;
+    background-color: white;
+  }
+
+  margin: unset !important;
+  padding: 0 10px;
 
 }
 
-@media screen and (min-width: 768px) and (max-width: 1023px) {
-  .photos-block {
-    height: unset;
-    grid-template-columns: repeat(2, 1fr);
+.carousel__next {
+  &::after {
+    transform: rotate(180deg);
+    right: -40px;
+  }
+}
 
-    &-elem {
-      height: 300px;
 
-      &:last-of-type {
-        grid-column: 1/4;
-      }
+.carousel__prev {
+  &::after {
+    left: -40px;
+  }
+}
+
+.copyright {
+  text-align: center;
+  padding-bottom: 30px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  height: 35px;
+
+  margin-top: auto;
+  margin-bottom: 0px;
+
+  & span {
+    display: block;
+    font-weight: 300;
+    font-size: 12px;
+    text-align: center;
+    color: #555;
+  }
+
+  a {
+    color: #555;
+    text-decoration: none;
+
+    &:hover {
+      color: #fff;
     }
   }
+}
+
+
+.logo-all {
+  cursor: pointer;
+  width: 210px;
+  display: flex;
+  margin: 10px auto 60px auto;
+}
+
+.logo-all-mob {
+  display: none;
+}
+
+.title-block {
+  h3 {
+    text-align: center;
+    margin-bottom: 6px;
+  }
+
+  .subtitle {
+    font-weight: 275;
+    font-size: 15px;
+    line-height: 123%;
+    text-align: center;
+    display: block;
+  }
+
+  p {
+    margin-top: 14px;
+    text-align: center;
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 149%;
+  }
+}
+
+.marg-ar {
+  margin-left: 28px !important;
+  margin-right: 28px !important;
+}
+
+@media screen and (max-width: 768px) {
+
+  .marg-ar {
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+  }
+
+  main {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+
+  nav.desk {
+    display: none;
+  }
+
+  nav.mob {
+    position: absolute;
+    right: 20px;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: max-content;
+    flex-direction: column;
+    gap: 16px;
+    z-index: 10;
+
+    & a {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 97%;
+      color: #fff;
+      text-decoration: none;
+      text-align: right;
+    }
+  }
+
+  p {
+    font-weight: 275;
+    font-size: 12px;
+    line-height: 123%;
+  }
+
+
+  .carousel__prev,
+  .carousel__next {
+    position: relative;
+    width: 40px !important;
+    height: 100% !important;
+  }
+
+  .carousel__next {
+    background: linear-gradient(-270deg, rgba(29, 29, 29, 0) 0%, rgba(4, 3, 0, 0.49)) !important;
+
+    &::after {
+      transform: rotate(180deg);
+      right: -10px;
+    }
+  }
+
+
+  .carousel__prev {
+    background: linear-gradient(270deg, rgba(29, 29, 29, 0) 0%, rgba(4, 3, 0, 0.49) 100%) !important;
+
+    &::after {
+      left: -10px;
+    }
+  }
+
+
+  .logo-all {
+    display: none;
+  }
+
+  .logo-all-mob {
+    cursor: pointer;
+    width: 80px;
+    display: flex;
+    margin: 10px auto 60px 13px;
+  }
+
+
+  .title-block {
+    margin-left: 20px;
+    margin-right: 20px;
+
+    .subtitle {
+
+      font-size: 12px;
+
+    }
+
+    p {
+      margin-top: 12px;
+
+    }
+  }
+
 }
 </style>

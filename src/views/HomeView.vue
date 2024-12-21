@@ -94,13 +94,13 @@
       <span class="tel">+7 (915) 304-87-71</span>
       <span class="mail">pr.acrnm@gmail.com</span>
       <div class="icons">
-        <a href="http://" target="_blank" rel="noopener noreferrer">
+        <a href="https://t.me/yakov_ovven" target="_blank" rel="noopener noreferrer">
           <div class="icon tele"></div>
         </a>
-        <a href="http://" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.instagram.com/acrnm.mus/" target="_blank" rel="noopener noreferrer">
           <div class="icon insta"></div>
         </a>
-        <a href="http://" target="_blank" rel="noopener noreferrer">
+        <a href="https://wa.me/+79153048771" target="_blank" rel="noopener noreferrer">
           <div class="icon whatsapp"></div>
         </a>
       </div>

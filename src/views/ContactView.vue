@@ -127,6 +127,8 @@ h3 {
     }
 
     .vacancies {
+        margin-bottom: 30px;
+
         h3 {
             text-align: right;
         }

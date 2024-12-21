@@ -92,8 +92,8 @@ export default defineComponent({
 .top-gradient {
   position: absolute;
   top: 0;
-  left: calc(50% - 1024px);
-  width: 2048px;
+  left: 0;
+  width: 100vw;
   height: 465px;
   background: linear-gradient(0deg, #040300 0%, #121318 100%);
   z-index: -3;
@@ -102,8 +102,8 @@ export default defineComponent({
 .bottom-gradient {
   position: absolute;
   bottom: 0;
-  left: calc(50% - 1024px);
-  width: 2048px;
+  left: 0;
+  width: 100vw;
   // height: 465px;
   height: 20vh;
   background: linear-gradient(180deg, #040300 0%, #121318 100%);

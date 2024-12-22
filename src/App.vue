@@ -2,22 +2,19 @@
   <header>
 
     <nav class="desk">
+      <RouterLink to="/services">Услуги</RouterLink>
       <RouterLink to="/portfolio">Работы</RouterLink>
       <RouterLink to="/about">О нас</RouterLink>
       <RouterLink to="/contact">Контакты</RouterLink>
     </nav>
     <nav class="mob">
-      <RouterLink to="/contact">Контакты</RouterLink>
+      <RouterLink to="/services">Услуги</RouterLink>
       <RouterLink to="/portfolio">Работы</RouterLink>
       <RouterLink to="/about">О нас</RouterLink>
+      <RouterLink to="/contact">Контакты</RouterLink>
     </nav>
+    <DarkModeSwitcher class="mode-switch" v-model="theme_mode" />
   </header>
-  <!-- <div id="back">
-    <div class="left"></div>
-    <div class="right"></div>
-    <img src="@/assets/background-gradient.jpg" alt="">
-  </div> -->
-
   <div class="top-gradient"></div>
 
 
@@ -33,20 +30,36 @@
 <script>
 
 import { RouterLink, RouterView, useRouter, useRoute } from 'vue-router'
-import { defineComponent, ref } from 'vue'
+import { defineComponent, provide, ref } from 'vue'
 
-const myCarousel = ref(null)
+import DarkModeSwitcher from '@/components/DarkModeSwitcher.vue'
+
 
 export default defineComponent({
   name: 'App',
+  components: {
+    DarkModeSwitcher
+  },
   setup() {
 
+    const theme_mode = ref(window.localStorage.getItem('appColorTheme') || 'dark')
+    provide('theme', {
+      theme_mode
+    });
 
-    return {}
+
+    return { theme_mode }
   }
 })
 </script>
 <style lang="scss">
+.mode-switch {
+  position: absolute;
+  top: 13px;
+  right: 28px;
+}
+
+
 #back {
   position: absolute;
   top: -230px;
@@ -95,7 +108,8 @@ export default defineComponent({
   left: 0;
   width: 100vw;
   height: 465px;
-  background: linear-gradient(0deg, #040300 0%, #121318 100%);
+  transition: background 0.3s ease;
+  background: var(--back-gradient);
   z-index: -3;
 }
 
@@ -106,7 +120,9 @@ export default defineComponent({
   width: 100vw;
   // height: 465px;
   height: 20vh;
-  background: linear-gradient(180deg, #040300 0%, #121318 100%);
+  transition: background 0.3s ease;
+  background: var(--back-gradient);
+  transform: rotate(180deg);
   z-index: -3;
 }
 
@@ -122,7 +138,8 @@ nav.desk {
     font-weight: 400;
     font-size: 14px;
     line-height: 97%;
-    color: #fff;
+    transition: color 0.3s ease;
+    color: var(--text-color);
     text-decoration: none;
   }
 }

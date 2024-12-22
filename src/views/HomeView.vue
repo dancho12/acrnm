@@ -14,30 +14,25 @@
     </div>
     <div class="main-text">
       <h2>Коротко о главном</h2>
-      <p>Мы занимаемся созданием <strong>аудио</strong> и <strong>CG-графики</strong> для рекламы и кино. Благодаря
-        точечному
-        подходу к этим двум сферам -
-        мы получаем наилучший результат.</p>
+      <p>Мы занимаемся музыкой и звукорежиссурой для рекламы и кино, выставок и театра. Благодаря точечному подходу к этим двум сферам - мы получаем наилучший результат.</p>
     </div>
 
     <div class="what-we-create marg-ar">
-      <h2>Что мы делаем</h2>
-      <span class="sub">Вместе или по отдельности</span>
       <div class="cards">
         <div class="card">
-          <span class="title">Графика</span>
-          <span class="subtitle">CG, Моушн-дизайн, Инфографика, Брендинг</span>
-          <p>Наше основное направление. Делаем графику для рекламы, кино и мероприятий</p>
+          <span class="title">Музыка</span>
+          <p>Классические и современные жанры, Своя студия</p>
+          <p>Наше основное направление. Делаем музыкальное оформление для рекламы, кино и мероприятий</p>
         </div>
         <div class="card">
           <span class="title">Звук</span>
-          <span class="subtitle">Музыка, Саунд-дизайн, Звукорежиссура</span>
-          <p>Одна из важнейших и самых недооценённых частей производства</p>
+          <p>Звукорежиссура площадки & постпродакшна, Саунд-дизайн</p>
+          <p>Одна из важнейших частей производства контента. Делаем всё, что связано со звуком</p>
         </div>
         <div class="card">
           <span class="title">Продюсирование</span>
-          <span class="subtitle">Ведение проектов и управление подрядами</span>
-          <p>Основная задача лаборатории - объединение профессионалов и их навыков</p>
+          <p>Ведение проектов и управление подрядами</p>
+          <p>Сами найдём необходимых профессионалов или поможем с исполнением</p>
         </div>
       </div>
     </div>
@@ -58,14 +53,17 @@
       </Carousel>
     </div>
     <div class="showreel marg-ar">
-      <p>Ну и само собой - наш шоурил:</p>
+      <h3>Шоукейсы</h3>
+      <p>Наша работа - не просто написать пару нот в секвенсоре и сгенерировать
+        абстрактную картинку нейросетью, а провести проект от задумки до показа.
+        И вот как это выглядит:</p>
       <div class="video play" @click="open_video_on_full('https://www.youtube.com/embed/r3i-5_7ZwFA')">
         <img src="@/assets/photos/comp/showreel.jpg" alt="showreel">
       </div>
       <span class="title">ACRNM LAB Showreel 2023</span>
     </div>
 
-    <div class="how-it-works marg-ar">
+    <!-- <div class="how-it-works marg-ar">
       <h3>Как всё это работает</h3>
       <span class="subtitle">Весь процесс от А до Я</span>
       <ul>
@@ -74,13 +72,10 @@
         <li>Составляем тех. задание, референсы, сроки и бюджет</li>
         <li>Выполняем задание и радуемся вместе</li>
       </ul>
-    </div>
+    </div> -->
 
     <div class="cases">
-      <h3>Шоукейсы</h3>
-      <p>Наша работа - не просто написать пару нот в секвенсоре и сгенерировать
-        абстрактную картинку нейросетью, а провести проект от задумки до показа.
-        И вот как это выглядит:</p>
+
 
 
       <Carousel :wrap-around="true" :breakpoints="breakpoints" ref="myCarousel2">
@@ -283,17 +278,17 @@ export default defineComponent({
     justify-content: space-between;
 
     & .card {
-      width: 350px;
-      height: 98px;
-      backdrop-filter: blur(15px);
-      border: solid 2px #0f0;
-      box-sizing: border-box;
-      border-radius: 20px;
-      border-image-slice: 40;
-      border-image-repeat: round;
-      border-image-width: 10px;
-      border-image-source: url(/src/assets/test_bg.png);
+      width: 318px;
+      height: 128px;
+      background-image: url('@/assets/back/home-page-info.png');
       padding: 16px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      transition: background-image 0.3s ease;
+
+      @include is-light-theme() {
+        background-image: url('@/assets/back/home-page-info-light.png');
+      }
 
       .title {
         font-weight: 500;
@@ -302,16 +297,11 @@ export default defineComponent({
         margin-bottom: 7px;
       }
 
-      .subtitle {
-        font-weight: 275;
-        font-size: 10px;
-        line-height: 123%;
-        display: block;
-      }
-
       p {
-        font-style: italic;
-        font-size: 8px;
+        margin-top: 0px;
+        font-weight: 275;
+        font-size: 12px;
+        line-height: 123%;
       }
     }
 
@@ -333,6 +323,12 @@ export default defineComponent({
     width: 350px;
     border-radius: 20px;
     overflow: hidden;
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+    @include is-light-theme() {
+      box-shadow: 0 4px 7px 0 rgba(202, 212, 253, 0.31);
+    }
 
     & img {
       width: 100%;
@@ -357,6 +353,10 @@ export default defineComponent({
     font-size: 12px;
     text-align: center;
     color: #a4a4a4;
+
+    @include is-light-theme() {
+      color: var(--text-color);
+    }
   }
 }
 
@@ -368,6 +368,9 @@ export default defineComponent({
 
   p {
     margin-bottom: 70px;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .video {
@@ -376,6 +379,9 @@ export default defineComponent({
     border-radius: 20px;
     overflow: hidden;
 
+    @include is-light-theme() {
+      box-shadow: 0 4px 7px 0 rgba(202, 212, 253, 0.31);
+    }
 
     & img {
       width: 100%;
@@ -391,6 +397,10 @@ export default defineComponent({
     font-size: 12px;
     text-align: center;
     color: #a4a4a4;
+
+    @include is-light-theme() {
+      color: var(--text-color);
+    }
   }
 }
 
@@ -412,6 +422,7 @@ export default defineComponent({
     background-color: white;
     z-index: 100;
     opacity: 0.7;
+    transition: opacity 0.3s ease;
   }
 
   &:hover {
@@ -483,7 +494,7 @@ export default defineComponent({
       max-width: 30px;
       max-height: 30px;
 
-      background-color: white;
+      background-color: var(--text-color);
     }
 
     .tele {

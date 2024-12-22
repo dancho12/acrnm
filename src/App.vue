@@ -251,7 +251,8 @@ p {
     mask-image: url(@/assets/icons/arrow.svg);
     -webkit-mask-image: url(@/assets/icons/arrow.svg);
     background-repeat: no-repeat;
-    background-color: white;
+
+    background-color: var(--text-color);
   }
 
   margin: unset !important;
@@ -299,6 +300,10 @@ p {
 
     &:hover {
       color: #fff;
+
+      @include is-light-theme() {
+        color: #100f0f;
+      }
     }
   }
 }

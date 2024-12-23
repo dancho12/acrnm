@@ -182,7 +182,6 @@ export default defineComponent({
         title: "Atomic Heart:<br>Инстинкт Истребления",
         cover: new URL("@/assets/photos/comp/atomic-2-min.png", import.meta.url).href,
         vinyl: new URL("@/assets/audio/Vinyl.png", import.meta.url).href,
-        reverse: false,
         link: {
           title: "Слушать на Яндекс.Музыке",
           href: "https://music.yandex.ru/album/26779794/track/115947933"
@@ -210,6 +209,124 @@ export default defineComponent({
           },
           {
             title: "Organic - Apocalypse",
+            audio: new URL("@/assets/audio/korol.mp3", import.meta.url).href,
+          },
+        ]
+      },
+      {
+        title: "Новая Земля",
+        cover: new URL("@/assets/audio/newland.jpg", import.meta.url).href,
+        vinyl: new URL("@/assets/audio/Vinyl-newland.png", import.meta.url).href,
+
+        tracks: [
+          {
+            title: "New Land - Main Theme",
+            audio: new URL("@/assets/audio/korol.mp3", import.meta.url).href,
+          },
+        ]
+      },
+      {
+        title: "Браслет",
+        cover: new URL("@/assets/audio/braslet.jpg", import.meta.url).href,
+        vinyl: new URL("@/assets/audio/Vinyl-braslet.png", import.meta.url).href,
+        reverse: true,
+        tracks: [
+          {
+            title: "Браслет - Салют Вера",
+            audio: new URL("@/assets/audio/korol.mp3", import.meta.url).href,
+          },
+          {
+            title: "Браслет - Main Theme",
+            audio: new URL("@/assets/audio/korol.mp3", import.meta.url).href,
+          },
+          {
+            title: "Браслет - Спа",
+            audio: new URL("@/assets/audio/korol.mp3", import.meta.url).href,
+          },
+        ]
+      },
+      {
+        title: "Яков Шостакович:<br>Избранное",
+        cover: new URL("@/assets/audio/favorite.jpg", import.meta.url).href,
+        vinyl: new URL("@/assets/audio/Vinyl-favorite.png", import.meta.url).href,
+        link: {
+          title: "Слушать на Яндекс.Музыке",
+          href: "https://music.yandex.ru/album/26779794/track/115947933"
+        },
+        tracks: [
+          {
+            title: "Яков Шостакович - Julia ",
+            audio: new URL("@/assets/audio/korol.mp3", import.meta.url).href,
+          },
+          {
+            title: "Яков Шостакович - Avenge ",
+            audio: new URL("@/assets/audio/korol.mp3", import.meta.url).href,
+          },
+          {
+            title: "Яков Шостакович - Full Circle",
+            audio: new URL("@/assets/audio/korol.mp3", import.meta.url).href,
+          },
+          {
+            title: "Яков Шостакович - Сирин",
+            audio: new URL("@/assets/audio/korol.mp3", import.meta.url).href,
+          },
+        ]
+      },
+      {
+        title: "Адская Школа",
+        cover: new URL("@/assets/audio/ad.jpg", import.meta.url).href,
+        vinyl: new URL("@/assets/audio/Vinyl-ad.png", import.meta.url).href,
+        reverse: true,
+        tracks: [
+          {
+            title: "Адская Школа - Main Theme",
+            audio: new URL("@/assets/audio/korol.mp3", import.meta.url).href,
+          },
+        ]
+      },
+      {
+        title: "Fantasy RPG:<br>Inspired",
+        cover: new URL("@/assets/audio/FANTASY-RPG.jpg", import.meta.url).href,
+        vinyl: new URL("@/assets/audio/Vinyl-FANTASY-RPG.png", import.meta.url).href,
+        tracks: [
+          {
+            title: "Fantasy RPG - City Market",
+            audio: new URL("@/assets/audio/korol.mp3", import.meta.url).href,
+          },
+          {
+            title: "Fantasy RPG - Mead and Bread",
+            audio: new URL("@/assets/audio/korol.mp3", import.meta.url).href,
+          },
+          {
+            title: "Fantasy RPG - Dancing With Fire",
+            audio: new URL("@/assets/audio/korol.mp3", import.meta.url).href,
+          },
+        ]
+      },
+      {
+        title: "ОВЕН",
+        cover: new URL("@/assets/audio/oven.jpg", import.meta.url).href,
+        vinyl: new URL("@/assets/audio/Vinyl-oven.png", import.meta.url).href,
+        reverse: true,
+        link: {
+          title: "Слушать на Яндекс.Музыке",
+          href: "https://music.yandex.ru/users/yamusic-bestsongs/playlists/9425114"
+        },
+        tracks: [
+          {
+            title: "Овен - Karen",
+            audio: new URL("@/assets/audio/korol.mp3", import.meta.url).href,
+          },
+          {
+            title: "Овен - Алконост",
+            audio: new URL("@/assets/audio/korol.mp3", import.meta.url).href,
+          },
+          {
+            title: "Овен - Бог Мой",
+            audio: new URL("@/assets/audio/korol.mp3", import.meta.url).href,
+          },
+          {
+            title: "Овен - Хозяйка",
             audio: new URL("@/assets/audio/korol.mp3", import.meta.url).href,
           },
         ]
@@ -329,6 +446,7 @@ export default defineComponent({
   display: flex;
   flex-direction: column;
   gap: 65px;
+  margin-top: 87px;
 }
 
 .last-info {

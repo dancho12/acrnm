@@ -71,8 +71,10 @@ export default defineComponent({
         const nowPlayPlayer = inject("nowPlayPlayer");
 
         watch(nowPlayPlayer, (newIndex) => {
+
+
             if (randomName.value != newIndex) {
-                audioInstances[currentTrackIndex.value].pause();
+                audioInstances[currentTrackIndex.value]?.pause();
                 isPlaying.value = false;
             }
         }, { deep: true });
@@ -144,11 +146,22 @@ export default defineComponent({
     gap: 20px;
     color: var(--text-color);
 
+    position: relative;
+
     .album-cover {
         position: relative;
         width: 261px;
         height: 261px;
         display: flex;
+
+        @include is-mobile() {
+            width: 145px;
+            height: 145px;
+
+            position: absolute;
+            left: -135px;
+
+        }
 
         .vinyl {
             position: absolute;
@@ -164,6 +177,12 @@ export default defineComponent({
             /* Stop by default */
 
             right: -60px;
+
+            @include is-mobile() {
+                width: 140px;
+                height: 140px;
+                right: -33px;
+            }
         }
 
         .vinyl.spinning {
@@ -179,6 +198,11 @@ export default defineComponent({
             z-index: 2;
             object-fit: cover;
             box-shadow: 8px 0 6px 0 rgba(0, 0, 0, 0.59);
+
+            @include is-mobile() {
+                width: 145px;
+                height: 145px;
+            }
         }
 
         a {
@@ -196,10 +220,18 @@ export default defineComponent({
                 color: #171717;
             }
         }
+
+
     }
 
     .playlist {
         z-index: 3;
+
+        @include is-mobile() {
+            width: -webkit-fill-available;
+            padding-left: 25px;
+            padding-right: 25px;
+        }
 
         h2 {
             margin-top: 47px;
@@ -214,12 +246,22 @@ export default defineComponent({
             flex-direction: column;
             gap: 40px;
 
+            @include is-mobile() {
+                width: -webkit-fill-available;
+                gap: 22px;
+            }
+
             .track-item {
                 display: flex;
 
                 gap: 30px;
                 padding: 10px;
                 flex-direction: column;
+
+                @include is-mobile() {
+
+                    gap: 12px;
+                }
 
                 .track-info {
                     flex: 1;
@@ -295,6 +337,8 @@ export default defineComponent({
                         background-size: auto;
                         background-position: center;
 
+
+
                         &.muted {
                             background-image: url('@/assets/icons/mute.svg');
                         }
@@ -303,6 +347,10 @@ export default defineComponent({
                     .volume-bar {
                         width: 100px;
                         margin-left: auto;
+
+                        @include is-mobile() {
+                            width: 60px;
+                        }
                     }
                 }
             }
@@ -315,10 +363,21 @@ export default defineComponent({
         .album-cover {
             .vinyl {
                 left: -60px;
+
+                @include is-mobile() {
+
+                    left: -33px
+                }
             }
 
             .cover {
                 box-shadow: -8px 0 6px 0 rgba(0, 0, 0, 0.59);
+            }
+
+            @include is-mobile() {
+
+                right: -135px;
+                left: unset;
             }
         }
 

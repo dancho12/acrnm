@@ -232,6 +232,11 @@ export default defineComponent({
     mix-blend-mode: var(--mix-blend-mode);
     top: calc(50% - 264px);
     left: calc(50% - 469px);
+
+    @include is-mobile() {
+      width: 905px;
+      left: calc(50% - 455px);
+    }
   }
 
   &-main {
@@ -254,6 +259,12 @@ export default defineComponent({
   text-align: center;
   width: 750px;
   margin: 0 auto;
+
+  @include is-mobile() {
+    width: auto;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
 }
 
 .what-we-create {
@@ -302,6 +313,17 @@ export default defineComponent({
         font-weight: 275;
         font-size: 12px;
         line-height: 123%;
+      }
+    }
+
+    @include is-mobile() {
+      margin-top: 25px;
+      flex-direction: column;
+      gap: 10px;
+
+      .card {
+        margin-left: auto;
+        margin-right: auto;
       }
     }
 
@@ -358,6 +380,22 @@ export default defineComponent({
       color: var(--text-color);
     }
   }
+
+  @include is-mobile() {
+    margin-top: 40px;
+
+    & .item {
+      height: 335px;
+      margin-left: 11px;
+      margin-right: 11px;
+    }
+
+    p {
+      margin-left: 20px;
+      margin-right: 20px;
+      margin-bottom: 40px
+    }
+  }
 }
 
 
@@ -400,6 +438,23 @@ export default defineComponent({
 
     @include is-light-theme() {
       color: var(--text-color);
+    }
+  }
+
+  @include is-mobile() {
+    margin-top: 68px;
+
+    p {
+      margin-bottom: 18px;
+    }
+
+    .video {
+      height: 155px;
+    }
+
+    .title {
+      margin-top: 9px;
+      font-size: 9px;
     }
   }
 }
@@ -456,6 +511,18 @@ export default defineComponent({
     margin: 0 auto;
     width: max-content;
   }
+
+  @include is-mobile() {
+    margin-top: 68px;
+    margin-bottom: 78px;
+
+    ul {
+      font-size: 12px;
+      width: inherit;
+      padding-left: 18px;
+    }
+  }
+
 }
 
 .contact-us {
@@ -512,74 +579,8 @@ export default defineComponent({
       -webkit-mask-image: url(@/assets/icons/whatsapp.svg);
     }
   }
-}
 
-@media screen and (max-width: 768px) {
-  .main-text {
-    width: auto;
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-
-  .what-we-create {
-
-    & .cards {
-      margin-top: 25px;
-      flex-direction: column;
-      gap: 10px;
-
-      .card {
-        width: auto;
-      }
-    }
-  }
-
-  .cases {
-
-    margin-top: 40px;
-
-    & .item {
-      height: 335px;
-      margin-left: 11px;
-      margin-right: 11px;
-    }
-
-    p {
-      margin-left: 20px;
-      margin-right: 20px;
-      margin-bottom: 40px
-    }
-  }
-
-  .showreel {
-    margin-top: 68px;
-
-    p {
-      margin-bottom: 18px;
-    }
-
-    .video {
-      height: 155px;
-    }
-
-    .title {
-      margin-top: 9px;
-      font-size: 9px;
-    }
-  }
-
-  .how-it-works {
-    margin-top: 68px;
-    margin-bottom: 78px;
-
-    ul {
-      font-size: 12px;
-      width: inherit;
-      padding-left: 18px;
-    }
-  }
-
-  .contact-us {
+  @include is-mobile() {
     padding-bottom: 20px;
   }
 }

@@ -86,6 +86,14 @@ export default defineComponent({
   border-image-width: 20px;
   border-image-source: url(@/assets/back/switch-bg.png);
 
+  @include is-mobile() {
+    width: 54px;
+    height: 23px;
+    border-image-slice: 51;
+  }
+
+
+
   &.light {
     border-image-source: url(@/assets/back/switch-bg-white.png) !important;
     box-shadow: 0 4px 7px 0 rgba(120, 150, 172, 0.38) !important;
@@ -120,10 +128,23 @@ export default defineComponent({
     border-image-width: 20px;
     border-image-source: url(@/assets/back/switch-btn.png);
 
+
+    @include is-mobile() {
+      width: 23px;
+      height: 23px;
+
+    }
+
     .icon {
       width: 20px;
       height: 20px;
       margin: auto;
+      background-size: contain;
+
+      @include is-mobile() {
+        width: 13px;
+        height: 13px;
+      }
     }
 
     &--dark {
@@ -143,6 +164,10 @@ export default defineComponent({
 
     &--translate {
       transform: translateX(46px);
+
+      @include is-mobile() {
+        transform: translateX(31px);
+      }
     }
 
   }

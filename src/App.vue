@@ -1,13 +1,7 @@
 <template>
   <header>
 
-    <nav class="desk">
-      <RouterLink to="/services">Услуги</RouterLink>
-      <RouterLink to="/portfolio">Работы</RouterLink>
-      <RouterLink to="/about">О нас</RouterLink>
-      <RouterLink to="/contact">Контакты</RouterLink>
-    </nav>
-    <nav class="mob">
+    <nav>
       <RouterLink to="/services">Услуги</RouterLink>
       <RouterLink to="/portfolio">Работы</RouterLink>
       <RouterLink to="/about">О нас</RouterLink>
@@ -57,46 +51,13 @@ export default defineComponent({
   position: absolute;
   top: 13px;
   right: 28px;
-}
 
-
-#back {
-  position: absolute;
-  top: -230px;
-  left: calc(50% - 1024px);
-  width: 2048px;
-
-  opacity: 0.6;
-  z-index: -2;
-  display: flex;
-
-  background-image: url(@/assets/background-gradient.jpg);
-  height: calc(100% + 230px);
-  background-position: top;
-  background-repeat: no-repeat;
-  background-size: cover;
-  mix-blend-mode: lighten;
-
-  .left,
-  .right {
-    width: 100px;
-    height: 100%;
-  }
-
-  .left {
-    margin-left: 0px;
-    margin-right: auto;
-
-    background: #000;
-    background: linear-gradient(90deg, rgba(4, 3, 0, 1) 0%, rgba(4, 3, 0, 0) 100%);
-  }
-
-  .right {
-    margin-left: auto;
-    margin-right: 0px;
-    background: linear-gradient(-90deg, rgba(4, 3, 0, 1) 0%, rgba(4, 3, 0, 0) 100%);
+  @include is-mobile {
+    top: 50px;
+    right: 30px;
   }
 }
+
 
 .router-link-active {
   font-weight: 200 !important;
@@ -118,7 +79,6 @@ export default defineComponent({
   bottom: 0;
   left: 0;
   width: 100vw;
-  // height: 465px;
   height: 20vh;
   transition: background 0.3s ease;
   background: var(--back-gradient);
@@ -126,31 +86,44 @@ export default defineComponent({
   z-index: -3;
 }
 
-nav.desk {
+nav {
   margin-left: auto;
   margin-right: auto;
   padding-top: 20px;
   width: 500px;
   display: flex;
   justify-content: space-between;
+  font-size: 14px;
 
   & a {
     font-weight: 400;
-    font-size: 14px;
+
     line-height: 97%;
     transition: color 0.3s ease;
     color: var(--text-color);
     text-decoration: none;
   }
+
+  @include is-mobile {
+    width: unset;
+    margin-left: 32px;
+    margin-right: 32px;
+
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 97%;
+  }
 }
 
-nav.mob {
-  display: none;
-}
 
 main {
   width: 1200px;
   margin: 0 auto;
+
+  @include is-mobile {
+    width: 100%;
+
+  }
 }
 
 h2 {
@@ -165,6 +138,11 @@ p {
 
   strong {
     font-weight: 500;
+  }
+
+  @include is-mobile {
+    font-weight: 275;
+    font-size: 12px;
   }
 }
 
@@ -186,46 +164,12 @@ p {
     border: 0;
     width: 90%;
     height: 90%;
-  }
-}
 
-@media screen and (max-width: 768px) {
-
-  #back {
-    position: absolute;
-    top: 0;
-    left: calc(50% - 575px);
-    width: 1150px;
-    background-image: url(@/assets/background-gradient-mob.jpg);
-
-    .left,
-    .right {
-      display: none;
-    }
-
-  }
-
-
-
-  .full-screen-video {
-    cursor: pointer;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: #080808b2;
-    display: flex;
-    z-index: 200;
-
-    & iframe {
-      cursor: unset;
-      margin: auto;
-      border: 0;
-      width: 90%;
+    @include is-mobile() {
       height: 30%;
     }
   }
+
 }
 
 
@@ -258,6 +202,11 @@ p {
   margin: unset !important;
   padding: 0 10px;
 
+  @include is-mobile {
+    position: relative;
+    width: 40px !important;
+    height: 100% !important;
+  }
 }
 
 .carousel__next {
@@ -265,12 +214,29 @@ p {
     transform: rotate(180deg);
     right: -40px;
   }
+
+  @include is-mobile {
+    background: linear-gradient(-270deg, rgba(29, 29, 29, 0) 0%, rgba(4, 3, 0, 0.49)) !important;
+
+    &::after {
+      transform: rotate(180deg);
+      right: -10px;
+    }
+  }
 }
 
 
 .carousel__prev {
   &::after {
     left: -40px;
+  }
+
+  @include is-mobile {
+    background: linear-gradient(270deg, rgba(29, 29, 29, 0) 0%, rgba(4, 3, 0, 0.49) 100%) !important;
+
+    &::after {
+      left: -10px;
+    }
   }
 }
 
@@ -314,10 +280,21 @@ p {
   width: 210px;
   display: flex;
   margin: 10px auto 60px auto;
+
+  @include is-mobile {
+    display: none;
+  }
 }
 
 .logo-all-mob {
   display: none;
+
+  @include is-mobile {
+    cursor: pointer;
+    width: 80px;
+    display: flex;
+    margin: 10px auto 60px 13px;
+  }
 }
 
 .title-block {
@@ -344,97 +321,8 @@ p {
     font-size: 15px;
     line-height: 149%;
   }
-}
 
-.marg-ar {
-  margin-left: 28px !important;
-  margin-right: 28px !important;
-}
-
-@media screen and (max-width: 768px) {
-
-  .marg-ar {
-    margin-left: 10px !important;
-    margin-right: 10px !important;
-  }
-
-  main {
-    width: 100%;
-    margin: 0 auto;
-  }
-
-
-  nav.desk {
-    display: none;
-  }
-
-  nav.mob {
-    position: absolute;
-    right: 20px;
-    padding-top: 20px;
-    display: flex;
-    justify-content: space-between;
-    width: max-content;
-    flex-direction: column;
-    gap: 16px;
-    z-index: 10;
-
-    & a {
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 97%;
-      color: #fff;
-      text-decoration: none;
-      text-align: right;
-    }
-  }
-
-  p {
-    font-weight: 275;
-    font-size: 12px;
-    line-height: 123%;
-  }
-
-
-  .carousel__prev,
-  .carousel__next {
-    position: relative;
-    width: 40px !important;
-    height: 100% !important;
-  }
-
-  .carousel__next {
-    background: linear-gradient(-270deg, rgba(29, 29, 29, 0) 0%, rgba(4, 3, 0, 0.49)) !important;
-
-    &::after {
-      transform: rotate(180deg);
-      right: -10px;
-    }
-  }
-
-
-  .carousel__prev {
-    background: linear-gradient(270deg, rgba(29, 29, 29, 0) 0%, rgba(4, 3, 0, 0.49) 100%) !important;
-
-    &::after {
-      left: -10px;
-    }
-  }
-
-
-  .logo-all {
-    display: none;
-  }
-
-  .logo-all-mob {
-    cursor: pointer;
-    width: 80px;
-    display: flex;
-    margin: 10px auto 60px 13px;
-  }
-
-
-  .title-block {
+  @include is-mobile {
     margin-left: 20px;
     margin-right: 20px;
 
@@ -449,6 +337,15 @@ p {
 
     }
   }
+}
 
+.marg-ar {
+  margin-left: 28px !important;
+  margin-right: 28px !important;
+
+  @include is-mobile {
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+  }
 }
 </style>

@@ -5,6 +5,7 @@
     --background-color: #040300;
     // --secondary-color: #1f1f1f;
     --text-color: #ffffff;
+    --text-color-filter: brightness(0) saturate(100%) invert(100%) sepia(1%) saturate(2070%) hue-rotate(153deg) brightness(119%) contrast(100%);
     --text-color-hover: #eceef3;
     --back-gradient: linear-gradient(0deg, #04030000 0%, #121318 100%);
     --mix-blend-mode: lighten;
@@ -17,6 +18,7 @@
     --background-color: #eceef3;
     // --secondary-color: #f4f4f4;
     --text-color: #171717;
+    --text-color-filter: brightness(0) saturate(100%) invert(7%) sepia(10%) saturate(15%) hue-rotate(322deg) brightness(95%) contrast(95%);
     --text-color-hover: #222222;
     --back-gradient: linear-gradient(0deg, #eceef300 0%, #cad4fd 100%);
 

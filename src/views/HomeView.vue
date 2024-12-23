@@ -1,7 +1,7 @@
 <template>
   <main>
     <div class="logo">
-      <template v-if="theme_mode == 'dark'">
+      <template v-if="!is_light_theme">
         <img class="logo-main" src="@/assets/acrnm-logo-new.png" alt="">
         <img class="logo-back" src="@/assets/logo-back.png" alt="">
       </template>
@@ -133,7 +133,7 @@ export default defineComponent({
   },
   setup() {
 
-    const { theme_mode } = inject("theme");
+    const { theme_mode, is_light_theme } = inject("theme");
     const open_video_full = ref(false);
     const open_video_full_url = ref('');
 
@@ -211,7 +211,7 @@ export default defineComponent({
       },
     })
 
-    return { photos1, showcases, get_url, breakpoints, open_video_full, open_video_full_url, open_video_on_full, close_video_on_full, theme_mode }
+    return { photos1, showcases, get_url, breakpoints, open_video_full, open_video_full_url, open_video_on_full, close_video_on_full, is_light_theme }
   }
 })
 </script>

@@ -24,7 +24,7 @@
 <script>
 
 import { RouterLink, RouterView, useRouter, useRoute } from 'vue-router'
-import { defineComponent, provide, ref } from 'vue'
+import { defineComponent, provide, ref, computed } from 'vue'
 
 import DarkModeSwitcher from '@/components/DarkModeSwitcher.vue'
 
@@ -37,8 +37,13 @@ export default defineComponent({
   setup() {
 
     const theme_mode = ref(window.localStorage.getItem('appColorTheme') || 'dark')
+
+    const is_light_theme = computed(() => {
+      return theme_mode.value === 'light'
+    })
     provide('theme', {
-      theme_mode
+      theme_mode,
+      is_light_theme
     });
 
 
@@ -293,7 +298,7 @@ p {
     cursor: pointer;
     width: 80px;
     display: flex;
-    margin: 10px auto 60px 13px;
+    margin: 10px auto 60px auto;
   }
 }
 

@@ -24,7 +24,7 @@
 <script>
 
 import { RouterLink, RouterView, useRouter, useRoute } from 'vue-router'
-import { defineComponent, provide, ref, computed } from 'vue'
+import { defineComponent, provide, ref, computed, reactive } from 'vue'
 
 import DarkModeSwitcher from '@/components/DarkModeSwitcher.vue'
 
@@ -45,6 +45,11 @@ export default defineComponent({
       theme_mode,
       is_light_theme
     });
+
+    const nowPlayPlayer = ref(null);
+
+    provide("nowPlayPlayer", nowPlayPlayer);
+
 
 
     return { theme_mode }

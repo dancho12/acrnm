@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import { defineComponent, ref, reactive, onBeforeUnmount } from "vue";
+import { defineComponent, ref, reactive, onBeforeUnmount, inject, watch } from "vue";
 
 export default defineComponent({
     name: "MusicPlayer",
@@ -44,21 +44,19 @@ export default defineComponent({
             type: String,
             default: "Playlist",
         },
-        cover: {
-        },
-        vinyl: {
-        },
+        cover: {},
+        vinyl: {},
         reverse: {
             type: Boolean,
-            default: false
+            default: false,
         },
         link: {
             type: Object,
-            default: {
+            default: () => ({
                 title: "",
-                href: ""
-            }
-        }
+                href: "",
+            }),
+        },
     },
     setup(props) {
         const currentTrackIndex = ref(0);
@@ -67,6 +65,17 @@ export default defineComponent({
         const currentTrackTimes = reactive(props.tracks.map(() => 0));
         const currentVolumes = reactive(props.tracks.map(() => 0.5));
         const trackDurations = reactive(props.tracks.map(() => 0));
+
+
+        const randomName = ref(`playlist-${Math.random().toString(36).substring(2, 8)}`);
+        const nowPlayPlayer = inject("nowPlayPlayer");
+
+        watch(nowPlayPlayer, (newIndex) => {
+            if (randomName.value != newIndex) {
+                audioInstances[currentTrackIndex.value].pause();
+                isPlaying.value = false;
+            }
+        }, { deep: true });
 
         const playTrack = (index) => {
             if (!audioInstances[index]) {
@@ -80,6 +89,7 @@ export default defineComponent({
                 });
             }
 
+            nowPlayPlayer.value = randomName.value;
             if (isPlaying.value && currentTrackIndex.value === index) {
                 audioInstances[index].pause();
                 isPlaying.value = false;
@@ -139,7 +149,6 @@ export default defineComponent({
         width: 261px;
         height: 261px;
         display: flex;
-
 
         .vinyl {
             position: absolute;
@@ -212,14 +221,11 @@ export default defineComponent({
                 padding: 10px;
                 flex-direction: column;
 
-
                 .track-info {
                     flex: 1;
                     font-weight: 400;
                     font-size: 12px;
                     line-height: 149%;
-
-
                 }
 
                 .control {
@@ -227,8 +233,6 @@ export default defineComponent({
                     gap: 12px;
 
                     .play-pause {
-
-
                         cursor: pointer;
 
                         min-width: 27px;
@@ -241,14 +245,11 @@ export default defineComponent({
 
                         &.play {
                             background-image: url('@/assets/icons/play.svg');
-
                         }
 
                         &.pause {
                             background-image: url('@/assets/icons/pause.svg');
-
                         }
-
                     }
 
                     .seek-bar,
@@ -274,15 +275,10 @@ export default defineComponent({
                         }
 
                         &::-webkit-slider-runnable-track {
-
                             width: 100%;
                             height: 1px;
                             background: var(--text-color);
-
-
                         }
-
-
                     }
 
                     .volume-icon {
@@ -307,16 +303,11 @@ export default defineComponent({
                     .volume-bar {
                         width: 100px;
                         margin-left: auto;
-
-
                     }
                 }
-
-
             }
         }
     }
-
 
     &.reverse {
         flex-direction: row-reverse;
@@ -345,7 +336,6 @@ export default defineComponent({
             }
         }
     }
-
 }
 
 @keyframes spin {

@@ -15,7 +15,7 @@
     </div>
     <div v-if="tab == 'watch'" class="content-container marg-ar">
 
-      <div class="item" v-for="item in watch_items" :key="item">
+      <div class="item" v-for="(item, key) in watch_items" :key="item" :class="{ open: key == open_id && open_id != null }">
         <div class="description">
           <span class="title" v-html="item.name"></span>
           <p v-html="item.info1"></p>
@@ -26,8 +26,9 @@
             <a :href="item.link" target="_blank" rel="noopener noreferrer">Смотреть</a>
           </div>
         </div>
-        <div class="pic">
-          <img :src="item.img" alt="">
+        <div class="pic" @click="open_item(key)">
+          <img :src="item.img" alt="" :class="item?.class">
+          <div class="open-btn"></div>
         </div>
       </div>
 
@@ -36,7 +37,6 @@
       <template v-for="album in albums" :key="album">
         <MusicPlayer :cover="album.cover" :title="album.title" :vinyl="album.vinyl" :tracks="album.tracks" :reverse="album.reverse" :link="album.link" />
       </template>
-      <!-- <MusicPlayer :albums="albums" /> -->
 
     </div>
 
@@ -60,6 +60,19 @@ export default defineComponent({
 
     const tab = ref('watch');
 
+    const open_id = ref(null);
+
+    function open_item(key) {
+      if (open_id != null) {
+        if (open_id.value == key) {
+          open_id.value = null
+        } else {
+          open_id.value = key
+        }
+      } else {
+        open_id.value = null
+      }
+    }
     const watch_items = ref([
       {
         name: "Atomic Heart:<br>Инстинкт Истребления",
@@ -68,46 +81,55 @@ export default defineComponent({
         author: "Яков Шостакович",
         link: "https://www.youtube.com/watch?v=7x2Y3Uq8Mko",
         img: new URL("@/assets/photos/comp/atomic-2-min.png", import.meta.url).href,
+        class: "atomic"
       },
       {
         name: "VK Видео: Адская Школа",
         info1: "Осенью 2023 к нам обратились из VK видео и МШК с просьбой записать и обработать звук для пилотного эпизода сериала про “Игру в кальмара” в российских реалиях. Проект был сложным, но крайне интересным. Более того, специально для сериала мы написали заглавную тему в исполнении великолепной Екатерины Проскуры.",
-        info2: "Пилот участвовал в тендере VK и занял лидирующее место в списке перспективных сериалов площадки.",
-        author: "Яков Шостакович, Михаил Бурый",
+        info2: "Пилот участвовал в тендере VK и занял лидирующее место в списке перспективных сериалов площадки",
+        author: "Яков Шостакович, Михаил Бурый, Екатерина Проскура",
         link: "https://youtu.be/IU0AJHgbldg",
         img: new URL("@/assets/photos/comp/hell-min.png", import.meta.url).href,
       },
       {
         name: "P&G:<br>Beyond The Pattern",
-        info1: "Для кампании P&G Beyond The Pattern мы предоставили полный спектр услуг по аудиопродакшену. В том числе создание звуковых эффектов, запись и обработку вокала для промо-роликов и анимаций.",
-        info2: "Результат был представлен на международных фестивалях и получил признание аудитории.",
-        author: "Яков Шостакович",
+        info1: "Летом 2024 нам позвонили ребята из компании P&G, с просьбой нарисовать для них ролик-открытие их мероприятия в кинотеатре Октябрь (да, графикой мы тоже занимаемся), а также написать для него музыку, исполненную в итоге барабанным оркестром вживую!",
+        info2: "Безусловно, мы были шокированны таким уважаемым гостем, и боялись не оправдать возложенных на нас ожиданий. Тем не менее, пускай честно говоря ценой многих бессонных ночей и целого месяца трудоёмкой работы - оставили заказчиков довольными! Показать мы правда вам этого не можем, НДА, все дела.",
+        author: "Илья Яковенко, Илья Мельников, Кирилл Кокин, Яков Шостакович",
         link: "https://example.com/pg-beyond-the-pattern", // Добавьте правильную ссылку
         img: new URL("@/assets/photos/comp/p&g.jpg", import.meta.url).href,
       },
       {
         name: "Пятёрочка",
-        info1: "Крупная сеть супермаркетов обратилась к нам с просьбой разработать серию рекламных роликов, направленных на продвижение сезонных предложений. Мы отвечали за полное музыкальное сопровождение, включая джинглы.",
-        info2: "Ролики транслировались на телевидении и в социальных сетях.",
-        author: "Яков Шостакович, Команда ACRYM",
+        info1: "Наши друзья из студии Clout обратились к нам за помощью со звуком в рекламной кампании Пятёрочки в честь дня космонавтики. ",
+        info2: "Как мы неоднократно повторяем - звук важен ровно настолько же, насколько важна качественная картинка. А в данном случае тем более - ведь в для промороликов мы записывали прекрасный мощный голос Александра Пушного.<br><br>А оскорбить мастера музыки и ээээкспериментов мы ну никак не могли.",
+        author: "Яков Шостакович, Михаил Бурый",
         link: "https://example.com/pyaterochka", // Добавьте правильную ссылку
         img: new URL("@/assets/photos/comp/pyaterochka.jpg", import.meta.url).href,
       },
       {
         name: "Bourgeois Bohème",
-        info1: "Мы участвовали в создании аудио- и визуальной концепции для модного дома Bourgeois Bohème. Проект включал создание звуковой атмосферы, которая подчеркивает уникальный стиль бренда.",
-        info2: "Результат был представлен на модных показах и в рекламных кампаниях.",
-        author: "Илья Яковенко",
+        info1: "Наши друзья из студии Argument Agency попросили нас создать музыкальное сопровождение и саунд-дизайн для рекламного ролика европейской платёжной системы - Borgeois Boheme.",
+        info2: 'Да, сама работа была достаточно простой, и делимся мы ею в первую очередь ради имени бренда. Но есть и интересное: при работе над проектом, мы никак не могли подобрать подходящее звучание для музыки. Она должна быть одновременно бодрой, но при этом достаточно классической и "богатой". <br><br>По итогу, в качестве вдохновения - отлично помог фильм  "Now You See Me".',
+        author: "Яков Шостакович, Мирослав Стефанский ",
         link: "https://example.com/bourgeois-boheme", // Добавьте правильную ссылку
         img: new URL("@/assets/photos/comp/bb.jpg", import.meta.url).href,
       },
       {
         name: "IQOS:<br>POP Experience",
-        info1: "Для IQOS мы создали аудиовизуальное сопровождение их POP Experience кампании, включая разработку уникальных музыкальных тем и обработку звуковых эффектов.",
-        info2: "Проект был представлен на нескольких международных выставках.",
+        info1: "Один из самых странных, и тем не менее, безумно интересных проектов, которые мы делали. ",
+        info2: "К нам обратились за написанием звукового сопровождения и озвучки интерфейса для AR презентации продукции компании, при помощи шлема дополненной реальности Apple Vision Pro. <br><br>Работа включает в себя эдакий многослойный пирог из звуков эффектов и элементов интерфейса, переплетающихся вместе в единую симфонию.",
         author: "Яков Шостакович",
         link: "https://example.com/iqos-pop-experience", // Добавьте правильную ссылку
         img: new URL("@/assets/photos/comp/iqos.jpg", import.meta.url).href,
+      },
+      {
+        name: "Fitmost",
+        info1: "Подруга студенчества обратилась к нам за написанием музыкального сопровождения для рекламы приложения Fitmost, которое мало того что поддерживало бы динамику происходящего на экране, но при этом же работало как своеобразный саунд-дизайн само по себе. ",
+        info2: "В результате у нас получилось совместить около пяти музыкальных жанров в одной композиции, добавив туда множество элементов из реального мира, работающих как оркестр.",
+        author: "Яков Шостакович, Ирина Вязникова",
+        link: "https://example.com/fitmost", // Добавьте правильную ссылку
+        img: new URL("@/assets/photos/comp/fitmost.jpg", import.meta.url).href,
       },
       {
         name: "Sofia Doors:<br>Solaris",
@@ -118,61 +140,56 @@ export default defineComponent({
         img: new URL("@/assets/photos/comp/sofia.jpg", import.meta.url).href,
       },
       {
-        name: "Фитмост",
-        info1: "Мы работали над созданием аудиосопровождения для рекламной кампании Фитмост. Кампания была направлена на продвижение здорового образа жизни через фитнес-платформу.",
-        info2: "Музыка и звуки были разработаны специально для этой кампании.",
-        author: "Яков Шостакович",
-        link: "https://example.com/fitmost", // Добавьте правильную ссылку
-        img: new URL("@/assets/photos/comp/fitmost.jpg", import.meta.url).href,
-      },
-      {
-        name: "Volna",
-        info1: "Проект Volna - это уникальная коллаборация, в которой мы приняли участие в разработке музыкального оформления для нового бренда одежды, вдохновленного природой.",
-        info2: "Результат был представлен в рамках запуска бренда.",
-        author: "Команда ACRYM",
+        name: "Radio Volna",
+        info1: "Один из сложнейших и запутаннейших проектов за последнее время, тем не менее - такой же интригующий и интересный. ",
+        info2: "Дубайское радио обратилось к нам за полным обновлением “одежды” своего эфира. Заказчик не хотел идти по классическим тропам радиовещаниях с диджейскими сбивками и бархатным мужским и звонким женским голосами, читающими лозунги станции.<br><br>По итогу мы пришли к необычной смеси славянских фольклорных напевов с поп-музыкой, обозначающей суть и специфику единственного русского радио в Дубае - естественнейшим из путей: музыкой! ",
+        author: "Яков Шостакович, Екатерина Проскура ",
         link: "https://example.com/volna", // Добавьте правильную ссылку
         img: new URL("@/assets/photos/comp/volna.jpg", import.meta.url).href,
       },
       {
         name: "Браслет",
-        info1: "Для адаптации романа в сериал мы создали звуковую атмосферу, которая подчеркивает драматизм истории. А также разработали музыкальное оформление для трейлера.",
-        info2: "Проект был представлен зрителям в 2023 году.",
-        author: "Команда ACRYM",
+        info1: "“Скандальный” и эпохальный, этот спектакль родился из золотой классики, умудрившись перевернуть представление всей нашей команды о концептуализации и театре в принципе. ",
+        info2: "Режиссёр спектакля Виктор Шахбазов попросил нас написать полноценное музыкальное сопровождение к пьесе, и внезапно, как-то умудриться адаптировать песню “Меладзе - Салют Вера” - под II сонату Бетховена, скрестив оба произведения воедино.<br<br>Удивительно, но у нас получилось! А послушать шедевр можно в соседнем окне. ",
+        author: "Яков Шостакович, Екатерина Проскура, Анжелика Чайко",
         link: "https://example.com/braslet", // Добавьте правильную ссылку
         img: new URL("@/assets/photos/comp/braslet.jpg", import.meta.url).href,
+        class: "braslet"
       },
       {
         name: "StoryScape:<br>Tales & Stories",
-        info1: "Проект StoryScape включает в себя разработку аудио- и визуальной концепции для ряда документальных фильмов, охватывающих различные регионы мира.",
-        info2: "Наша команда работала над музыкальным оформлением и созданием звуковых эффектов.",
-        author: "Команда ACRYM",
+        info1: "Постоянные участники этого раздела (угадайте кто) заказали у нас музыкальное сопровождение и саунд-дизайн для промо-ролика игры StoryScape, использующей нейросети по созданию изображения и текстов, для естественного и увлекательного обучения детей. ",
+        info2: "Что интересно, проект мы сдали ещё год назад, однако разработчики примерно раз в несколько месяцев возвращаются с новой версией монтажа и механик, из-за чего работа стала для нас своеборазным пособием по тому, в чём мы профессионально подросли, а в чём ещё нет.",
+        author: "Яков Шостакович ",
         link: "https://example.com/storyscape", // Добавьте правильную ссылку
         img: new URL("@/assets/photos/comp/storyscape.jpg", import.meta.url).href,
       },
       {
         name: "Новая Земля",
-        info1: "Проект о человеческой адаптации в суровых условиях Арктики, в рамках которого мы создавали звуковую и музыкальную концепцию для документального сериала.",
-        info2: "Сериал получил высокую оценку на международных кинофестивалях и продолжает вдохновлять зрителей.",
+        info1: "Дипломный проект Михаила Нистратова, с увлекательнейшим и редчайшим видеоигровым сеттингом - исследованием острова Новая Земля учёными времён царской России. ",
+        info2: "Это пожалуй любимая тематика нашего композитора, поэтому несмотря на скромные начала - мы взялись за проект с головой, написав главную тему для игры, и проложив путь для общего звука и атмосферы будущего проекта.",
         author: "Команда ACRYM",
         link: "https://example.com/new-earth", // Замените на реальную ссылку
         img: new URL("@/assets/photos/comp/newland.jpg", import.meta.url).href,
       },
       {
-        name: "ELK",
-        info1: "ELK - проект, созданный для исследования и популяризации экологической осведомлённости. Мы работали над аудиовизуальной концепцией, а также создали звуковое сопровождение для трейлеров и рекламных материалов.",
-        info2: "Проект участвовал в международных экологических форумах.",
-        author: "Команда ACRYM",
-        link: "https://example.com/elk", // Добавьте правильную ссылку
-        img: new URL("@/assets/photos/comp/elk.jpg", import.meta.url).href,
-      },
-      {
         name: "Organic",
         info1: "Organic - это документальный проект Егора Субботина о флоре и фауне разных штатов Америки, выигравший множество наград по всему миру. В конце 2022 года мы приняли участие в разработке аудио-визуальной концепции проекта, создали музыкальное сопровождение к трейлеру и промо.",
         info2: "А сейчас продолжаем работу над экранизацией в формате сериала на площадки Netflix и Amazon.",
-        author: "Яков Шостакович",
+        author: "Яков Шостакович, Егор Субботин ",
         link: "https://vimeo.com/915796876",
         img: new URL("@/assets/photos/comp/organic.jpg", import.meta.url).href,
       },
+      {
+        name: "ELK",
+        info1: "Наш авторский короткометражный фильм, выполненный в технике смешения реальности с абстрактной анимацией. ",
+        info2: "Делали его долго, сложно, и не совсем так как он изначально задумывался - но это один из интереснейших опытов в работе, что у нас когда либо был.",
+        author: "Яков Шостакович, Сергей Тамбов",
+        link: "https://example.com/elk", // Добавьте правильную ссылку
+        img: new URL("@/assets/photos/comp/elk.jpg", import.meta.url).href,
+        class: "elk"
+      },
+
 
     ]);
 
@@ -340,7 +357,9 @@ export default defineComponent({
       is_light_theme,
       tab,
       watch_items,
-      albums
+      albums,
+      open_id,
+      open_item
     }
   }
 })
@@ -379,6 +398,7 @@ export default defineComponent({
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
+
 
 
   .item {
@@ -428,17 +448,137 @@ export default defineComponent({
       height: 700px;
       overflow: hidden;
 
+      @include is-light-theme() {
+        box-shadow: 0 4px 7px 0 rgba(202, 212, 253, 0.31);
+      }
+
       & img {
         width: 100%;
         height: 100%;
         object-fit: cover;
+      }
+
+      .open-btn {
+        display: none;
       }
     }
 
     &:nth-child(2n) {
       flex-direction: column-reverse;
     }
+
+    @include is-mobile() {
+
+
+      flex-direction: column-reverse;
+      transition: height 0.3s ease;
+      position: relative;
+      gap: 0px;
+
+      .pic {
+        height: 150px;
+        transition: height 0.3s ease;
+        position: relative;
+
+        box-shadow: unset;
+
+        @include is-light-theme() {
+          box-shadow: 0 4px 10px 0 rgba(72, 41, 102, 0.25);
+        }
+
+        img {
+          &.atomic {
+            position: absolute !important;
+            bottom: 0px !important;
+            height: unset !important;
+          }
+
+          &.elk {
+            position: absolute !important;
+            bottom: -17px !important;
+            height: unset !important;
+          }
+
+          &.braslet {
+            position: absolute !important;
+            top: 0px !important;
+            height: unset !important;
+          }
+        }
+
+
+        .open-btn {
+          display: block;
+          position: absolute;
+          bottom: 0px;
+          right: 0px;
+
+          content: '';
+          min-width: 52px;
+          min-height: 52px;
+          max-width: 52px;
+          max-height: 52px;
+          mask-image: url(@/assets/icons/portfolio-arrow.svg);
+          -webkit-mask-image: url(@/assets/icons/portfolio-arrow.svg);
+          background-repeat: no-repeat;
+
+          background-color: #fff;
+          transition: rotate 0.3s;
+          rotate: 0deg;
+        }
+      }
+
+      .description {
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        opacity: 0;
+        transform: translateY(-10px);
+        height: 0px;
+      }
+
+      // &.open {
+
+      // }
+
+      &.open .description {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+        height: auto;
+        margin-top: 25px;
+      }
+
+      &.open .pic {
+        height: 432px;
+
+        .open-btn {
+          transition: rotate 0.3s;
+          rotate: 180deg;
+          // transform: rotate(180deg);
+        }
+
+        // img {
+        //   position: unset !important;
+        //   height: 100% !important;
+        // }
+      }
+
+
+
+      &:nth-child(2n) {
+        flex-direction: column-reverse;
+      }
+
+    }
   }
+
+  @include is-mobile() {
+    margin-top: 45px;
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+
+  }
+
 
 }
 
@@ -459,30 +599,8 @@ export default defineComponent({
   font-size: 15px;
   line-height: 149%;
   text-align: center;
-}
 
-@media screen and (max-width: 768px) {
-  .content-container {
-
-    margin-top: 45px;
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-
-
-    .item {
-
-      .pic {
-        height: 432px;
-      }
-
-      &:nth-child(2n) {
-        flex-direction: column;
-      }
-    }
-  }
-
-  .last-info {
+  @include is-mobile() {
     margin-left: 20px;
     margin-right: 20px;
     margin-top: 50px;

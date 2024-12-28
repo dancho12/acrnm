@@ -143,7 +143,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 .music-player {
     display: flex;
-    gap: 20px;
+    gap: 35px;
     color: var(--text-color);
 
     position: relative;
@@ -199,6 +199,10 @@ export default defineComponent({
             object-fit: cover;
             box-shadow: 8px 0 6px 0 rgba(0, 0, 0, 0.59);
 
+            @include is-light-theme() {
+                box-shadow: 0 4px 8px 0 rgba(63, 49, 102, 0.35);
+            }
+
             @include is-mobile() {
                 width: 145px;
                 height: 145px;
@@ -238,6 +242,15 @@ export default defineComponent({
             font-weight: 600;
             font-size: 22px;
             line-height: 149%;
+            margin-bottom: 80px;
+
+            @include is-light-theme() {
+                text-shadow: #eceef3 0px 0 10px;
+            }
+
+            @include is-mobile() {
+                margin-bottom: 25px;
+            }
         }
 
         .track-list {
@@ -254,8 +267,7 @@ export default defineComponent({
             .track-item {
                 display: flex;
 
-                gap: 30px;
-                padding: 10px;
+                gap: 20px;
                 flex-direction: column;
 
                 @include is-mobile() {
@@ -318,7 +330,7 @@ export default defineComponent({
 
                         &::-webkit-slider-runnable-track {
                             width: 100%;
-                            height: 1px;
+                            height: 2px;
                             background: var(--text-color);
                         }
                     }
@@ -372,6 +384,10 @@ export default defineComponent({
 
             .cover {
                 box-shadow: -8px 0 6px 0 rgba(0, 0, 0, 0.59);
+
+                @include is-light-theme() {
+                    box-shadow: 0 4px 8px 0 rgba(63, 49, 102, 0.35);
+                }
             }
 
             @include is-mobile() {

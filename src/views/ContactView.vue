@@ -82,7 +82,7 @@ h3 {
                 max-width: 30px;
                 max-height: 30px;
 
-                background-color: white;
+                background-color: var(--text-color);
             }
 
             .tele {

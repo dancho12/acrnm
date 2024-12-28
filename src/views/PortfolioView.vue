@@ -33,7 +33,7 @@
       </div>
 
     </div>
-    <div v-if="tab == 'listen'" class="listen-container marg-ar">
+    <div v-if="tab == 'listen'" class="listen-container">
       <template v-for="album in albums" :key="album">
         <MusicPlayer :cover="album.cover" :title="album.title" :vinyl="album.vinyl" :tracks="album.tracks" :reverse="album.reverse" :link="album.link" />
       </template>
@@ -437,7 +437,7 @@ export default defineComponent({
         a {
           text-decoration: none;
           font-weight: 500;
-          color: #fff;
+          color: var(--text-color);
         }
       }
     }
@@ -447,6 +447,7 @@ export default defineComponent({
       border-radius: 20px;
       height: 700px;
       overflow: hidden;
+      flex-shrink: 0;
 
       @include is-light-theme() {
         box-shadow: 0 4px 7px 0 rgba(202, 212, 253, 0.31);
@@ -463,8 +464,28 @@ export default defineComponent({
       }
     }
 
+    .description {
+      height: -webkit-fill-available;
+      display: flex;
+      flex-direction: column;
+
+      p {
+        margin-top: 0px;
+      }
+
+      .info {
+        margin-top: auto;
+        margin-bottom: 0px;
+      }
+    }
+
     &:nth-child(2n) {
       flex-direction: column-reverse;
+
+      .pic {
+        margin-bottom: auto;
+        margin-top: 0px;
+      }
     }
 
     @include is-mobile() {
@@ -587,6 +608,8 @@ export default defineComponent({
   flex-direction: column;
   gap: 65px;
   margin-top: 87px;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 .last-info {

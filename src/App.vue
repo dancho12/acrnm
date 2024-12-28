@@ -59,7 +59,7 @@ export default defineComponent({
 <style lang="scss">
 .mode-switch {
   position: absolute;
-  top: 13px;
+  top: 20px;
   right: 28px;
 
   @include is-mobile {
@@ -70,7 +70,7 @@ export default defineComponent({
 
 
 .router-link-active {
-  font-weight: 200 !important;
+  font-weight: 400 !important;
 }
 
 .top-gradient {
@@ -106,12 +106,16 @@ nav {
   font-size: 14px;
 
   & a {
-    font-weight: 400;
+    font-weight: 200;
 
     line-height: 97%;
     transition: color 0.3s ease;
     color: var(--text-color);
     text-decoration: none;
+
+    &:hover {
+      font-weight: 400;
+    }
   }
 
   @include is-mobile {
@@ -206,7 +210,7 @@ p {
     -webkit-mask-image: url(@/assets/icons/arrow.svg);
     background-repeat: no-repeat;
 
-    background-color: var(--text-color);
+    background-color: #fff;
   }
 
   margin: unset !important;
@@ -227,6 +231,7 @@ p {
 
   @include is-mobile {
     background: linear-gradient(-270deg, rgba(29, 29, 29, 0) 0%, rgba(4, 3, 0, 0.49)) !important;
+    height: 335px !important;
 
     &::after {
       transform: rotate(180deg);
@@ -243,6 +248,7 @@ p {
 
   @include is-mobile {
     background: linear-gradient(270deg, rgba(29, 29, 29, 0) 0%, rgba(4, 3, 0, 0.49) 100%) !important;
+    height: 335px !important;
 
     &::after {
       left: -10px;

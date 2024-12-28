@@ -52,7 +52,7 @@ h3 {
   }
 
   a {
-    color: #fff;
+    color: var(--text-color);
     text-decoration: none;
   }
 

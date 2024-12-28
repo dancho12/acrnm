@@ -52,6 +52,13 @@
         </template>
       </Carousel>
     </div>
+
+    <div class="logos-container">
+      <div class="companies-logo" :class="{ 'desk-animated': logos.length > 7 }" ref="logoContainer">
+        <img v-for="(logo, index) in logos" :key="'logo-' + index" :src="logo.src" :alt="logo.alt" />
+      </div>
+    </div>
+
     <div class="showreel marg-ar">
       <h3>Шоукейсы</h3>
       <p>Наша работа - не просто написать пару нот в секвенсоре и сгенерировать
@@ -62,17 +69,6 @@
       </div>
       <span class="title">ACRNM LAB Showreel 2023</span>
     </div>
-
-    <!-- <div class="how-it-works marg-ar">
-      <h3>Как всё это работает</h3>
-      <span class="subtitle">Весь процесс от А до Я</span>
-      <ul>
-        <li>Вы присылаете нам все необходимые материалы</li>
-        <li>Мы обсуждаем проект любым удобным вам способом (лично или в сети)</li>
-        <li>Составляем тех. задание, референсы, сроки и бюджет</li>
-        <li>Выполняем задание и радуемся вместе</li>
-      </ul>
-    </div> -->
 
     <div class="cases">
 
@@ -117,7 +113,7 @@
 <script>
 
 import { RouterLink, RouterView, useRouter, useRoute } from 'vue-router'
-import { defineComponent, ref, inject } from 'vue'
+import { defineComponent, ref, inject, onMounted, watch } from 'vue'
 import { Carousel, Navigation, Slide } from 'vue3-carousel'
 import 'vue3-carousel/dist/carousel.css'
 
@@ -198,6 +194,7 @@ export default defineComponent({
       return new URL(`../assets/photos/comp/${img}`, import.meta.url).href;
     }
 
+
     const breakpoints = Object({
 
       0: {
@@ -211,7 +208,48 @@ export default defineComponent({
       },
     })
 
-    return { photos1, showcases, get_url, breakpoints, open_video_full, open_video_full_url, open_video_on_full, close_video_on_full, is_light_theme }
+    const logoContainer = ref(null);
+
+    const logos = ref([
+      { src: new URL('@/assets/icons/companies/5.svg', import.meta.url).href, alt: '5' },
+      { src: new URL('@/assets/icons/companies/exmo.svg', import.meta.url).href, alt: 'exmo' },
+      { src: new URL('@/assets/icons/companies/iri.svg', import.meta.url).href, alt: 'iri' },
+      { src: new URL('@/assets/icons/companies/ivi.svg', import.meta.url).href, alt: 'ivi' },
+      { src: new URL('@/assets/icons/companies/mfs.svg', import.meta.url).href, alt: 'mfs' },
+      { src: new URL('@/assets/icons/companies/p_g.svg', import.meta.url).href, alt: 'p_g' },
+      { src: new URL('@/assets/icons/companies/vk.svg', import.meta.url).href, alt: 'vk' },
+    ]);
+
+
+    const setupCarousel = () => {
+
+      const container = logoContainer.value;
+      const originalLogos = Array.from(container.children);
+
+      // Дублирование логотипов для бесшовности с добавлением класса
+      originalLogos.forEach((logo) => {
+        const clone = logo.cloneNode(true);
+        clone.classList.add('cloned');
+        container.appendChild(clone);
+      });
+
+    };
+
+    onMounted(setupCarousel);
+
+    return {
+      photos1,
+      showcases,
+      get_url,
+      breakpoints,
+      open_video_full,
+      open_video_full_url,
+      open_video_on_full,
+      close_video_on_full,
+      is_light_theme,
+      logoContainer,
+      logos,
+    }
   }
 })
 </script>
@@ -398,11 +436,75 @@ export default defineComponent({
   }
 }
 
+.logos-container {
+  position: relative;
+  overflow: hidden;
+
+  .companies-logo {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 70px;
+    margin-bottom: 70px;
+
+
+    & img {
+      width: 130px;
+      transition: all 0.3s ease;
+      filter: var(--text-color-filter);
+
+      &.cloned {
+        display: none;
+      }
+    }
+
+    &.desk-animated {
+      width: max-content;
+      animation: scroll 20s linear infinite;
+
+      & img {
+        margin-left: 15px;
+        margin-right: 15px;
+
+        &.cloned {
+          display: unset !important;
+        }
+      }
+    }
+
+
+    @include is-mobile() {
+      width: max-content;
+      animation: scroll 20s linear infinite;
+      gap: 0px;
+
+      & img {
+        margin-left: 15px;
+        margin-right: 15px;
+
+        &.cloned {
+          display: unset;
+        }
+      }
+    }
+  }
+}
+
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%); // Половина длины для бесшовной прокрутки
+  }
+}
 
 .showreel {
   text-align: center;
 
-  margin-top: 90px;
+  margin-top: 0px !important;
 
   p {
     margin-bottom: 70px;
@@ -478,6 +580,10 @@ export default defineComponent({
     z-index: 100;
     opacity: 0.7;
     transition: opacity 0.3s ease;
+
+    @include is-mobile {
+      opacity: 1;
+    }
   }
 
   &:hover {

@@ -105,7 +105,7 @@ export default defineComponent({
         info2: "Как мы неоднократно повторяем - звук важен ровно настолько же, насколько важна качественная картинка. А в данном случае тем более - ведь в для промороликов мы записывали прекрасный мощный голос Александра Пушного.<br><br>А оскорбить мастера музыки и ээээкспериментов мы ну никак не могли.",
         author: "Яков Шостакович, Михаил Бурый",
         link: "https://example.com/pyaterochka", // Добавьте правильную ссылку
-        img: new URL("@/assets/photos/comp/pyaterochka.jpg", import.meta.url).href,
+        img: new URL("@/assets/photos/comp/pyaterochka.png", import.meta.url).href,
       },
       {
         name: "Bourgeois Bohème",
@@ -121,7 +121,7 @@ export default defineComponent({
         info2: "К нам обратились за написанием звукового сопровождения и озвучки интерфейса для AR презентации продукции компании, при помощи шлема дополненной реальности Apple Vision Pro. <br><br>Работа включает в себя эдакий многослойный пирог из звуков эффектов и элементов интерфейса, переплетающихся вместе в единую симфонию.",
         author: "Яков Шостакович",
         link: "https://example.com/iqos-pop-experience", // Добавьте правильную ссылку
-        img: new URL("@/assets/photos/comp/iqos.jpg", import.meta.url).href,
+        img: new URL("@/assets/photos/comp/iqos.png", import.meta.url).href,
       },
       {
         name: "Fitmost",
@@ -153,7 +153,7 @@ export default defineComponent({
         info2: "Режиссёр спектакля Виктор Шахбазов попросил нас написать полноценное музыкальное сопровождение к пьесе, и внезапно, как-то умудриться адаптировать песню “Меладзе - Салют Вера” - под II сонату Бетховена, скрестив оба произведения воедино.<br<br>Удивительно, но у нас получилось! А послушать шедевр можно в соседнем окне. ",
         author: "Яков Шостакович, Екатерина Проскура, Анжелика Чайко",
         link: "https://example.com/braslet", // Добавьте правильную ссылку
-        img: new URL("@/assets/photos/comp/braslet.jpg", import.meta.url).href,
+        img: new URL("@/assets/photos/comp/braslet.png", import.meta.url).href,
         class: "braslet"
       },
       {
@@ -522,7 +522,7 @@ export default defineComponent({
 
           &.braslet {
             position: absolute !important;
-            top: 0px !important;
+            bottom: -45px !important;
             height: unset !important;
           }
         }

@@ -443,13 +443,11 @@ export default defineComponent({
   .companies-logo {
     display: flex;
     justify-content: space-between;
-    gap: 20px;
-    margin-top: 70px;
-    margin-bottom: 70px;
+    gap: 0px;
 
 
     & img {
-      width: 130px;
+      width: 170px;
       transition: all 0.3s ease;
       filter: var(--text-color-filter);
 
@@ -463,8 +461,8 @@ export default defineComponent({
       animation: scroll 20s linear infinite;
 
       & img {
-        margin-left: 15px;
-        margin-right: 15px;
+        margin-left: 5px;
+        margin-right: 5px;
 
         &.cloned {
           display: unset !important;
@@ -479,8 +477,8 @@ export default defineComponent({
       gap: 0px;
 
       & img {
-        margin-left: 15px;
-        margin-right: 15px;
+        margin-left: 5px;
+        margin-right: 5px;
 
         &.cloned {
           display: unset;

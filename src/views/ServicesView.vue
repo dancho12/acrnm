@@ -61,7 +61,15 @@
                     </p>
                 </div>
 
-                <div class="cards">
+                <div class="cards desk">
+                    <div class="item" v-for="slide in items" :key="slide">
+                        <span class="title">{{ slide.title }}</span>
+                        <p v-html="slide.points"></p>
+                        <p class="mini" v-html="slide.text"></p>
+                    </div>
+                </div>
+
+                <div class="cards mob">
 
                     <Carousel :wrap-around="true" :breakpoints="breakpoints" ref="myCarousel">
                         <Slide v-for="slide in items" :key="slide">
@@ -76,7 +84,7 @@
 
                 </div>
                 <p class="warning">В примерах учитывается
-                    только наша работа,
+                    только наша работа,<br>
                     не включающая правки*</p>
             </div>
             <h3>Цена</h3>
@@ -315,11 +323,29 @@ h3 {
 
         .cards {
 
+            &.desk {
+                display: flex;
+                justify-content: space-between;
+
+                @include is-mobile() {
+                    display: none;
+                }
+            }
+
+            &.mob {
+                display: none;
+
+                @include is-mobile() {
+                    display: block;
+                }
+            }
+
 
             .item {
 
-                width: 216px;
-                height: 445px;
+                width: 176px;
+                height: 409px;
+
                 padding: 18px 20px 18px 20px;
                 border-radius: 20px;
                 background-image: url('@/assets/back/services-deadlines.png');
@@ -329,6 +355,11 @@ h3 {
 
                 @include is-light-theme() {
                     background-image: url('@/assets/back/services-deadlines-light.png');
+                }
+
+                @include is-mobile() {
+                    width: 216px;
+                    height: 445px;
                 }
 
                 .title {
@@ -355,7 +386,7 @@ h3 {
         }
 
         .warning {
-            width: 170px;
+            width: 175px;
             font-weight: 275;
             font-size: 12px;
             line-height: 149%;

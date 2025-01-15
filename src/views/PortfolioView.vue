@@ -23,7 +23,7 @@
 
           <div class="info">
             <span>{{ item.author }}</span>
-            <a :href="item.link" target="_blank" rel="noopener noreferrer">Смотреть</a>
+            <a v-if="item.link != undefined" :href="item.link" target="_blank" rel="noopener noreferrer">Смотреть</a>
           </div>
         </div>
         <div class="pic" @click="open_item(key)">
@@ -96,7 +96,6 @@ export default defineComponent({
         info1: "Летом 2024 нам позвонили ребята из компании P&G, с просьбой нарисовать для них ролик-открытие их мероприятия в кинотеатре Октябрь (да, графикой мы тоже занимаемся), а также написать для него музыку, исполненную в итоге барабанным оркестром вживую!",
         info2: "Безусловно, мы были шокированны таким уважаемым гостем, и боялись не оправдать возложенных на нас ожиданий. Тем не менее, пускай честно говоря ценой многих бессонных ночей и целого месяца трудоёмкой работы - оставили заказчиков довольными! Показать мы правда вам этого не можем, НДА, все дела.",
         author: "Илья Яковенко, Илья Мельников, Кирилл Кокин, Яков Шостакович",
-        link: "https://example.com/pg-beyond-the-pattern", // Добавьте правильную ссылку
         img: new URL("@/assets/photos/comp/p&g.jpg", import.meta.url).href,
       },
       {
@@ -104,7 +103,7 @@ export default defineComponent({
         info1: "Наши друзья из студии Clout обратились к нам за помощью со звуком в рекламной кампании Пятёрочки в честь дня космонавтики. ",
         info2: "Как мы неоднократно повторяем - звук важен ровно настолько же, насколько важна качественная картинка. А в данном случае тем более - ведь в для промороликов мы записывали прекрасный мощный голос Александра Пушного.<br><br>А оскорбить мастера музыки и ээээкспериментов мы ну никак не могли.",
         author: "Яков Шостакович, Михаил Бурый",
-        link: "https://example.com/pyaterochka", // Добавьте правильную ссылку
+        link: "https://cloutstudio.ru/project/5ka", // Добавьте правильную ссылку
         img: new URL("@/assets/photos/comp/pyaterochka.png", import.meta.url).href,
       },
       {
@@ -112,7 +111,6 @@ export default defineComponent({
         info1: "Наши друзья из студии Argument Agency попросили нас создать музыкальное сопровождение и саунд-дизайн для рекламного ролика европейской платёжной системы - Borgeois Boheme.",
         info2: 'Да, сама работа была достаточно простой, и делимся мы ею в первую очередь ради имени бренда. Но есть и интересное: при работе над проектом, мы никак не могли подобрать подходящее звучание для музыки. Она должна быть одновременно бодрой, но при этом достаточно классической и "богатой". <br><br>По итогу, в качестве вдохновения - отлично помог фильм  "Now You See Me".',
         author: "Яков Шостакович, Мирослав Стефанский ",
-        link: "https://example.com/bourgeois-boheme", // Добавьте правильную ссылку
         img: new URL("@/assets/photos/comp/bb.jpg", import.meta.url).href,
       },
       {
@@ -120,7 +118,6 @@ export default defineComponent({
         info1: "Один из самых странных, и тем не менее, безумно интересных проектов, которые мы делали. ",
         info2: "К нам обратились за написанием звукового сопровождения и озвучки интерфейса для AR презентации продукции компании, при помощи шлема дополненной реальности Apple Vision Pro. <br><br>Работа включает в себя эдакий многослойный пирог из звуков эффектов и элементов интерфейса, переплетающихся вместе в единую симфонию.",
         author: "Яков Шостакович",
-        link: "https://example.com/iqos-pop-experience", // Добавьте правильную ссылку
         img: new URL("@/assets/photos/comp/iqos.png", import.meta.url).href,
       },
       {
@@ -128,7 +125,6 @@ export default defineComponent({
         info1: "Подруга студенчества обратилась к нам за написанием музыкального сопровождения для рекламы приложения Fitmost, которое мало того что поддерживало бы динамику происходящего на экране, но при этом же работало как своеобразный саунд-дизайн само по себе. ",
         info2: "В результате у нас получилось совместить около пяти музыкальных жанров в одной композиции, добавив туда множество элементов из реального мира, работающих как оркестр.",
         author: "Яков Шостакович, Ирина Вязникова",
-        link: "https://example.com/fitmost", // Добавьте правильную ссылку
         img: new URL("@/assets/photos/comp/fitmost.jpg", import.meta.url).href,
       },
       {
@@ -144,7 +140,7 @@ export default defineComponent({
         info1: "Один из сложнейших и запутаннейших проектов за последнее время, тем не менее - такой же интригующий и интересный. ",
         info2: "Дубайское радио обратилось к нам за полным обновлением “одежды” своего эфира. Заказчик не хотел идти по классическим тропам радиовещаниях с диджейскими сбивками и бархатным мужским и звонким женским голосами, читающими лозунги станции.<br><br>По итогу мы пришли к необычной смеси славянских фольклорных напевов с поп-музыкой, обозначающей суть и специфику единственного русского радио в Дубае - естественнейшим из путей: музыкой! ",
         author: "Яков Шостакович, Екатерина Проскура ",
-        link: "https://example.com/volna", // Добавьте правильную ссылку
+        link: "https://volna.ae/", // Добавьте правильную ссылку
         img: new URL("@/assets/photos/comp/volna.jpg", import.meta.url).href,
       },
       {
@@ -152,7 +148,6 @@ export default defineComponent({
         info1: "“Скандальный” и эпохальный, этот спектакль родился из золотой классики, умудрившись перевернуть представление всей нашей команды о концептуализации и театре в принципе. ",
         info2: "Режиссёр спектакля Виктор Шахбазов попросил нас написать полноценное музыкальное сопровождение к пьесе, и внезапно, как-то умудриться адаптировать песню “Меладзе - Салют Вера” - под II сонату Бетховена, скрестив оба произведения воедино.<br<br>Удивительно, но у нас получилось! А послушать шедевр можно в соседнем окне. ",
         author: "Яков Шостакович, Екатерина Проскура, Анжелика Чайко",
-        link: "https://example.com/braslet", // Добавьте правильную ссылку
         img: new URL("@/assets/photos/comp/braslet.png", import.meta.url).href,
         class: "braslet"
       },
@@ -161,15 +156,14 @@ export default defineComponent({
         info1: "Постоянные участники этого раздела (угадайте кто) заказали у нас музыкальное сопровождение и саунд-дизайн для промо-ролика игры StoryScape, использующей нейросети по созданию изображения и текстов, для естественного и увлекательного обучения детей. ",
         info2: "Что интересно, проект мы сдали ещё год назад, однако разработчики примерно раз в несколько месяцев возвращаются с новой версией монтажа и механик, из-за чего работа стала для нас своеборазным пособием по тому, в чём мы профессионально подросли, а в чём ещё нет.",
         author: "Яков Шостакович ",
-        link: "https://example.com/storyscape", // Добавьте правильную ссылку
         img: new URL("@/assets/photos/comp/storyscape.jpg", import.meta.url).href,
       },
       {
         name: "Новая Земля",
         info1: "Дипломный проект Михаила Нистратова, с увлекательнейшим и редчайшим видеоигровым сеттингом - исследованием острова Новая Земля учёными времён царской России. ",
         info2: "Это пожалуй любимая тематика нашего композитора, поэтому несмотря на скромные начала - мы взялись за проект с головой, написав главную тему для игры, и проложив путь для общего звука и атмосферы будущего проекта.",
-        author: "Команда ACRYM",
-        link: "https://example.com/new-earth", // Замените на реальную ссылку
+        author: "Яков Шостакович, Дмитрий Качер",
+        link: "https://youtu.be/y_YdupsmU-A?si=heQwXnWJ-jqeAcUd", // Замените на реальную ссылку
         img: new URL("@/assets/photos/comp/newland.jpg", import.meta.url).href,
       },
       {
@@ -198,132 +192,132 @@ export default defineComponent({
       {
         title: "Atomic Heart:<br>Инстинкт Истребления",
         cover: new URL("@/assets/photos/comp/atomic-2-min.png", import.meta.url).href,
-        vinyl: new URL("@/assets/audio/Vinyl.png", import.meta.url).href,
+        vinyl: new URL("@/assets/audio/covers/Vinyl.png", import.meta.url).href,
         link: {
           title: "Слушать на Яндекс.Музыке",
           href: "https://music.yandex.ru/album/26779794/track/115947933"
         },
         tracks: [
           {
-            title: "ScaryOn - BEA-2 Theme",
-            audio: new URL("@/assets/audio/korol.mp3", import.meta.url).href,
+            title: "ScaryON - BEA-2 Theme",
+            audio: new URL("@/assets/audio/ScaryON - BEA-2 Theme.mp3", import.meta.url).href,
           },
         ]
       },
       {
         title: "Organic",
         cover: new URL("@/assets/photos/comp/organic.jpg", import.meta.url).href,
-        vinyl: new URL("@/assets/audio/Vinyl-organic.png", import.meta.url).href,
+        vinyl: new URL("@/assets/audio/covers/Vinyl-organic.png", import.meta.url).href,
         reverse: true,
         tracks: [
           {
             title: "Organic - Essence Of Time",
-            audio: new URL("@/assets/audio/korol.mp3", import.meta.url).href,
+            audio: new URL("@/assets/audio/Organic - Essence Of Time.mp3", import.meta.url).href,
           },
           {
             title: "Organic - Manatee",
-            audio: new URL("@/assets/audio/korol.mp3", import.meta.url).href,
+            audio: new URL("@/assets/audio/Organic - Manatee.mp3", import.meta.url).href,
           },
           {
             title: "Organic - Apocalypse",
-            audio: new URL("@/assets/audio/korol.mp3", import.meta.url).href,
+            audio: new URL("@/assets/audio/Organic - Apocalypse.mp3", import.meta.url).href,
           },
         ]
       },
       {
         title: "Новая Земля",
-        cover: new URL("@/assets/audio/newland.jpg", import.meta.url).href,
-        vinyl: new URL("@/assets/audio/Vinyl-newland.png", import.meta.url).href,
+        cover: new URL("@/assets/audio/covers/newland.jpg", import.meta.url).href,
+        vinyl: new URL("@/assets/audio/covers/Vinyl-newland.png", import.meta.url).href,
 
         tracks: [
           {
             title: "New Land - Main Theme",
-            audio: new URL("@/assets/audio/korol.mp3", import.meta.url).href,
+            audio: new URL("@/assets/audio/New Land - Main Theme.mp3", import.meta.url).href,
           },
         ]
       },
       {
         title: "Браслет",
-        cover: new URL("@/assets/audio/braslet.jpg", import.meta.url).href,
-        vinyl: new URL("@/assets/audio/Vinyl-braslet.png", import.meta.url).href,
+        cover: new URL("@/assets/audio/covers/braslet.jpg", import.meta.url).href,
+        vinyl: new URL("@/assets/audio/covers/Vinyl-braslet.png", import.meta.url).href,
         reverse: true,
         tracks: [
           {
             title: "Браслет - Салют Вера",
-            audio: new URL("@/assets/audio/korol.mp3", import.meta.url).href,
+            audio: new URL("@/assets/audio/Браслет - Салют Вера.mp3", import.meta.url).href,
           },
           {
             title: "Браслет - Main Theme",
-            audio: new URL("@/assets/audio/korol.mp3", import.meta.url).href,
+            audio: new URL("@/assets/audio/Браслет - Main Theme.mp3", import.meta.url).href,
           },
           {
             title: "Браслет - Спа",
-            audio: new URL("@/assets/audio/korol.mp3", import.meta.url).href,
+            audio: new URL("@/assets/audio/Браслет - Спа.mp3", import.meta.url).href,
           },
         ]
       },
       {
         title: "Яков Шостакович:<br>Избранное",
-        cover: new URL("@/assets/audio/favorite.jpg", import.meta.url).href,
-        vinyl: new URL("@/assets/audio/Vinyl-favorite.png", import.meta.url).href,
+        cover: new URL("@/assets/audio/covers/favorite.jpg", import.meta.url).href,
+        vinyl: new URL("@/assets/audio/covers/Vinyl-favorite.png", import.meta.url).href,
         link: {
           title: "Слушать на Яндекс.Музыке",
-          href: "https://music.yandex.ru/album/26779794/track/115947933"
+          href: "https://music.yandex.ru/artist/16390612"
         },
         tracks: [
           {
             title: "Яков Шостакович - Julia ",
-            audio: new URL("@/assets/audio/korol.mp3", import.meta.url).href,
+            audio: new URL("@/assets/audio/Яков Шостакович - Julia.mp3", import.meta.url).href,
           },
           {
             title: "Яков Шостакович - Avenge ",
-            audio: new URL("@/assets/audio/korol.mp3", import.meta.url).href,
+            audio: new URL("@/assets/audio/Яков Шостакович - Avenge.mp3", import.meta.url).href,
           },
           {
             title: "Яков Шостакович - Full Circle",
-            audio: new URL("@/assets/audio/korol.mp3", import.meta.url).href,
+            audio: new URL("@/assets/audio/Яков Шостакович - Full Circle.mp3", import.meta.url).href,
           },
           {
             title: "Яков Шостакович - Сирин",
-            audio: new URL("@/assets/audio/korol.mp3", import.meta.url).href,
+            audio: new URL("@/assets/audio/Яков Шостакович - Сирин.mp3", import.meta.url).href,
           },
         ]
       },
       {
         title: "Адская Школа",
-        cover: new URL("@/assets/audio/ad.jpg", import.meta.url).href,
-        vinyl: new URL("@/assets/audio/Vinyl-ad.png", import.meta.url).href,
+        cover: new URL("@/assets/audio/covers/ad.jpg", import.meta.url).href,
+        vinyl: new URL("@/assets/audio/covers/Vinyl-ad.png", import.meta.url).href,
         reverse: true,
         tracks: [
           {
             title: "Адская Школа - Main Theme",
-            audio: new URL("@/assets/audio/korol.mp3", import.meta.url).href,
+            audio: new URL("@/assets/audio/Адская Школа - Main Theme.mp3", import.meta.url).href,
           },
         ]
       },
       {
         title: "Fantasy RPG:<br>Inspired",
-        cover: new URL("@/assets/audio/FANTASY-RPG.jpg", import.meta.url).href,
-        vinyl: new URL("@/assets/audio/Vinyl-FANTASY-RPG.png", import.meta.url).href,
+        cover: new URL("@/assets/audio/covers/FANTASY-RPG.jpg", import.meta.url).href,
+        vinyl: new URL("@/assets/audio/covers/Vinyl-FANTASY-RPG.png", import.meta.url).href,
         tracks: [
           {
             title: "Fantasy RPG - City Market",
-            audio: new URL("@/assets/audio/korol.mp3", import.meta.url).href,
+            audio: new URL("@/assets/audio/Fantasy RPG - City Market.mp3", import.meta.url).href,
           },
           {
             title: "Fantasy RPG - Mead and Bread",
-            audio: new URL("@/assets/audio/korol.mp3", import.meta.url).href,
+            audio: new URL("@/assets/audio/Fantasy RPG - Mead and Bread.mp3", import.meta.url).href,
           },
           {
             title: "Fantasy RPG - Dancing With Fire",
-            audio: new URL("@/assets/audio/korol.mp3", import.meta.url).href,
+            audio: new URL("@/assets/audio/Fantasy RPG - Dancing With Fire.mp3", import.meta.url).href,
           },
         ]
       },
       {
         title: "ОВЕН",
-        cover: new URL("@/assets/audio/oven.jpg", import.meta.url).href,
-        vinyl: new URL("@/assets/audio/Vinyl-oven.png", import.meta.url).href,
+        cover: new URL("@/assets/audio/covers/oven.jpg", import.meta.url).href,
+        vinyl: new URL("@/assets/audio/covers/Vinyl-oven.png", import.meta.url).href,
         reverse: true,
         link: {
           title: "Слушать на Яндекс.Музыке",
@@ -332,23 +326,22 @@ export default defineComponent({
         tracks: [
           {
             title: "Овен - Karen",
-            audio: new URL("@/assets/audio/korol.mp3", import.meta.url).href,
+            audio: new URL("@/assets/audio/Овен - Karen.mp3", import.meta.url).href,
           },
           {
             title: "Овен - Алконост",
-            audio: new URL("@/assets/audio/korol.mp3", import.meta.url).href,
+            audio: new URL("@/assets/audio/Овен - Алконост.mp3", import.meta.url).href,
           },
           {
             title: "Овен - Бог Мой",
-            audio: new URL("@/assets/audio/korol.mp3", import.meta.url).href,
+            audio: new URL("@/assets/audio/Овен - Бог Мой.mp3", import.meta.url).href,
           },
           {
             title: "Овен - Хозяйка",
-            audio: new URL("@/assets/audio/korol.mp3", import.meta.url).href,
+            audio: new URL("@/assets/audio/Овен - Хозяйка.mp3", import.meta.url).href,
           },
         ]
       },
-
     ]
 
 

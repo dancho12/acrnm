@@ -84,7 +84,7 @@
         </template>
       </Carousel>
 
-      <span class="title">MUSIC, SOUNDDESIGN & CG SWOWCASES</span>
+      <span class="title">MUSIC, SOUNDDESIGN & CG SHOWCASES</span>
     </div>
     <div class="contact-us">
       <span class="title">Связаться с нами</span>

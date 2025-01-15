@@ -19,7 +19,7 @@
                         }">
                         </div>
                         <input type="range" min="0" :max="trackDurations[index]" v-model="currentTrackTimes[index]" @input="seekTrack(index)" class="seek-bar" />
-                        <div class="volume-icon" :class="{ muted: currentVolumes[index] == 0 }"></div>
+                        <div class="volume-icon" :class="{ muted: currentVolumes[index] == 0 }" @click="toggleMute(index)"></div>
                         <input type="range" min="0" max="1" step="0.01" v-model="currentVolumes[index]" @input="changeVolume(index)" class="volume-bar" />
                     </div>
 
@@ -117,6 +117,21 @@ export default defineComponent({
             }
         };
 
+
+
+        const toggleMute = (index) => {
+
+            if (audioInstances[index]) {
+
+                if (currentVolumes[index] === 0) {
+                    currentVolumes[index] = 0.5;
+                } else {
+                    currentVolumes[index] = 0;
+                }
+                audioInstances[index].volume = currentVolumes[index];
+            }
+        };
+
         onBeforeUnmount(() => {
             Object.values(audioInstances).forEach((audio) => {
                 if (audio) {
@@ -135,6 +150,7 @@ export default defineComponent({
             playTrack,
             seekTrack,
             changeVolume,
+            toggleMute
         };
     },
 });
@@ -170,7 +186,7 @@ export default defineComponent({
             border-radius: 50%;
             background: radial-gradient(circle, #444 60%, transparent 100%);
             z-index: 0;
-            background-image: url('@/assets/audio/Vinyl.png');
+            background-image: url('@/assets/audio/covers/Vinyl.png');
             background-size: cover;
             animation: spin 2s linear infinite;
             animation-play-state: paused;
@@ -243,6 +259,8 @@ export default defineComponent({
             font-size: 22px;
             line-height: 149%;
             margin-bottom: 80px;
+            min-height: 68px;
+
 
             @include is-light-theme() {
                 text-shadow: #eceef3 0px 0 10px;

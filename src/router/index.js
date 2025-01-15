@@ -7,6 +7,7 @@ import PortfolioView from '../views/PortfolioView.vue'
 import ContactView from '../views/ContactView.vue'
 import AboutView from '../views/AboutView.vue'
 import ServicesView from '../views/ServicesView.vue'
+import NotFound from '../views/NotFound.vue'
 
 const router = createRouter({
   history: createWebHistory(
@@ -36,6 +37,16 @@ const router = createRouter({
     name: 'services',
     component: ServicesView
   },
+  {
+    path: '/404', // Маршрут для любых неизвестных путей
+    name: 'NotFound',
+    component: NotFound
+  },
+  {
+    path: '/:catchAll(.*)', // Маршрут для любых неизвестных путей
+    name: 'NotFound',
+    component: NotFound
+  }
   ]
 })
 

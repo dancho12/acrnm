@@ -300,6 +300,7 @@ h3 {
             text-align: center !important;
             margin-left: auto;
             margin-right: auto;
+            margin-bottom: 34px;
 
             @include is-mobile() {
                 padding-left: 12px;

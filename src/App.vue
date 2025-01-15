@@ -211,6 +211,10 @@ p {
     background-repeat: no-repeat;
 
     background-color: #fff;
+
+    @include is-light-theme() {
+      background-color: #171717;
+    }
   }
 
   margin: unset !important;

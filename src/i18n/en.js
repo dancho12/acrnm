@@ -1,6 +1,6 @@
 export default {
     menu: {
-        portfolio: "Portfolio",
+        portfolio: "Projects",
         about: "About",
         contact: "Contacts"
     },

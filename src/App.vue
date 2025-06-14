@@ -1,33 +1,32 @@
 <template>
   <header>
-
     <nav>
-      <RouterLink to="/services">Услуги</RouterLink>
-      <RouterLink to="/portfolio">Работы</RouterLink>
-      <RouterLink to="/about">О нас</RouterLink>
-      <RouterLink to="/contact">Контакты</RouterLink>
+      <RouterLink to="/portfolio">{{ $t('menu.portfolio') }}</RouterLink>
+      <RouterLink to="/about">{{ $t('menu.about') }}</RouterLink>
+      <RouterLink to="/contact">{{ $t('menu.contact') }}</RouterLink>
     </nav>
     <DarkModeSwitcher class="mode-switch" v-model="theme_mode" />
+    <div class="lang-switch">
+      <span :class="{ active: lang === 'ru', mob: true }" @click="change_locale('ru')">РУС</span>
+      <span :class="{ active: lang === 'ru', desk: true }" @click="change_locale('ru')">Русский</span>
+      <span :class="{ active: lang === 'en', mob: true }" @click="change_locale('en')">ENG</span>
+      <span :class="{ active: lang === 'en', desk: true }" @click="change_locale('en')">English</span>
+    </div>
   </header>
   <div class="top-gradient"></div>
-
-
   <RouterView />
   <div class="copyright">
     <span>ACRNM LAB {{ new Date().getFullYear() }}</span>
     <span>CREATED BY <a href="http://daniiru.jp" target="_blank" rel="noopener noreferrer">DANIIRU</a></span>
   </div>
-  <div class="bottom-gradient">
-  </div>
+  <div class="bottom-gradient"></div>
 </template>
 
 <script>
-
 import { RouterLink, RouterView, useRouter, useRoute } from 'vue-router'
 import { defineComponent, provide, ref, computed, reactive } from 'vue'
-
+import i18n from "./i18n"
 import DarkModeSwitcher from '@/components/DarkModeSwitcher.vue'
-
 
 export default defineComponent({
   name: 'App',
@@ -35,9 +34,8 @@ export default defineComponent({
     DarkModeSwitcher
   },
   setup() {
-
+    document.querySelector('html').setAttribute('lang', i18n.global.locale.value)
     const theme_mode = ref(window.localStorage.getItem('appColorTheme') || 'dark')
-
     const is_light_theme = computed(() => {
       return theme_mode.value === 'light'
     })
@@ -45,17 +43,26 @@ export default defineComponent({
       theme_mode,
       is_light_theme
     });
-
     const nowPlayPlayer = ref(null);
-
     provide("nowPlayPlayer", nowPlayPlayer);
 
 
+    const lang = ref(i18n.global.locale.value);
 
-    return { theme_mode }
+    function change_locale(locale) {
+      localStorage.setItem('locale', locale);
+      i18n.global.locale.value = locale
+
+      lang.value = locale;
+      document.querySelector('html').setAttribute('lang', i18n.global.locale.value)
+
+    }
+
+    return { theme_mode, change_locale, lang }
   }
 })
 </script>
+
 <style lang="scss">
 .mode-switch {
   position: absolute;
@@ -65,6 +72,58 @@ export default defineComponent({
   @include is-mobile {
     top: 50px;
     right: 30px;
+  }
+}
+
+.lang-switch {
+  position: absolute;
+  top: 75px;
+  right: 28px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+
+  span {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-weight: 300;
+    font-size: 14px;
+    cursor: pointer;
+    opacity: 0.7;
+    display: flex;
+    align-items: center;
+    text-align: end;
+    width: -webkit-fill-available;
+
+    &.active {
+      opacity: 1;
+      font-weight: 500;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &.mob {
+      display: none;
+    }
+
+    &.desk {
+      display: inline;
+    }
+
+    @include is-mobile {
+      &.mob {
+        display: inline;
+      }
+
+      &.desk {
+        display: none;
+      }
+    }
   }
 }
 

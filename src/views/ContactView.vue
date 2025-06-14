@@ -2,17 +2,14 @@
     <main>
         <Logo />
         <div class="title-block">
-            <h3>Контакты</h3>
-            <span class="subtitle">Свяжитесь по работе с, или вместе с нами. <br>
-                Мы всегда рады пообщаться.</span>
+            <h3>{{ $t('contact.title') }}</h3>
+            <span class="subtitle" v-html="$t('contact.subtitle')"></span>
         </div>
-
-
         <div class="contact">
             <div class="info">
-                <span>Единая почта: <strong>pr.acrnm@gmail.com</strong></span>
-                <span>Телефон: <strong>+7 (915) 304-87-71</strong></span>
-                <span>Мессенджеры и соцсети:</span>
+                <span>{{ $t('contact.email') }}<strong>pr.acrnm@gmail.com</strong></span>
+                <span>{{ $t('contact.phone') }}<strong>+7 (915) 304-87-71</strong></span>
+                <span>{{ $t('contact.messengers') }}</span>
                 <div class="icons">
                     <a href="https://t.me/yakov_ovven" target="_blank" rel="noopener noreferrer">
                         <div class="icon tele"></div>
@@ -26,7 +23,6 @@
                 </div>
             </div>
         </div>
-
     </main>
 </template>
 

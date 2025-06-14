@@ -109,3 +109,9 @@ h3 {
     background: #ffffff;
     border-radius: 5px;
 }
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}

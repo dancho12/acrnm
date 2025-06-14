@@ -2,17 +2,17 @@
     <main>
         <Logo />
         <div class="title-block">
-            <h3>Упс!</h3>
-            <span class="subtitle">Что-то пошло не так...</span>
+            <h3>{{ $t('notfound.title') }}</h3>
+            <span class="subtitle">{{ $t('notfound.subtitle') }}</span>
         </div>
 
 
-        <span class="span404">404</span>
-        <p>Такой страницы не существует</p>
+        <span class="span404">{{ $t('notfound.span404') }}</span>
+        <p>{{ $t('notfound.p') }}</p>
 
         <img class="black" src="@/assets/cat-black.png" alt="cat">
         <img class="white" src="@/assets/cat-white.png" alt="cat">
-        <RouterLink to="/"><strong>Вернуться на главную</strong></RouterLink>
+        <RouterLink to="/"><strong>{{ $t('notfound.back') }}</strong></RouterLink>
 
     </main>
 </template>

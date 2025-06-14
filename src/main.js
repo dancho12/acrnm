@@ -1,4 +1,4 @@
-
+import i18n from "./i18n"
 
 import Components from './components/Components'
 import {
@@ -12,4 +12,5 @@ Components.forEach((component) => {
     app.component(component.name, component)
 })
 app.use(router)
+app.use(i18n)
 app.mount('#app')

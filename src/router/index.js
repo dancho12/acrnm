@@ -32,11 +32,11 @@ const router = createRouter({
     name: 'about',
     component: AboutView
   },
-  {
-    path: '/services',
-    name: 'services',
-    component: ServicesView
-  },
+  // {
+  //   path: '/services',
+  //   name: 'services',
+  //   component: ServicesView
+  // },
   {
     path: '/404', // Маршрут для любых неизвестных путей
     name: 'NotFound',

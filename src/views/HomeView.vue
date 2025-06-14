@@ -13,37 +13,37 @@
       <span class="logo-text">Music & Sound<br>Production</span>
     </div>
     <div class="main-text">
-      <h2>Коротко о главном</h2>
-      <p>Мы занимаемся музыкой и звукорежиссурой для рекламы и кино, выставок и театра. Благодаря точечному подходу к этим двум сферам - мы получаем наилучший результат.</p>
+      <h2>{{ $t('home.mainTitle') }}</h2>
+      <p>{{ $t('home.mainText') }}</p>
     </div>
 
     <div class="what-we-create marg-ar">
       <div class="cards">
         <div class="card">
-          <span class="title">Музыка</span>
-          <p>Классические и современные жанры, Своя студия</p>
-          <p>Наше основное направление. Делаем музыкальное оформление для рекламы, кино и мероприятий</p>
+          <span class="title">{{ $t('home.cards.card1.title') }}</span>
+          <p>{{ $t('home.cards.card1.desc1') }}</p>
+          <p>{{ $t('home.cards.card1.desc2') }}</p>
         </div>
         <div class="card">
-          <span class="title">Звук</span>
-          <p>Звукорежиссура площадки & постпродакшна, Саунд-дизайн</p>
-          <p>Одна из важнейших частей производства контента. Делаем всё, что связано со звуком</p>
+          <span class="title">{{ $t('home.cards.card2.title') }}</span>
+          <p>{{ $t('home.cards.card2.desc1') }}</p>
+          <p>{{ $t('home.cards.card2.desc2') }}</p>
         </div>
         <div class="card">
-          <span class="title">Продюсирование</span>
-          <p>Ведение проектов и управление подрядами</p>
-          <p>Сами найдём необходимых профессионалов или поможем с исполнением</p>
+          <span class="title">{{ $t('home.cards.card3.title') }}</span>
+          <p>{{ $t('home.cards.card3.desc1') }}</p>
+          <p>{{ $t('home.cards.card3.desc2') }}</p>
         </div>
       </div>
     </div>
 
     <div class="cases">
-      <h3>Наши работы</h3>
-      <p>Лучшее за последнее время</p>
+      <h3>{{ $t('home.ourWorks') }}</h3>
+      <p>{{ $t('home.bestRecent') }}</p>
 
 
       <Carousel :wrap-around="true" :breakpoints="breakpoints" ref="myCarousel">
-        <Slide v-for="slide in photos1 " :key="slide">
+        <Slide v-for="slide in photos1" :key="slide">
           <a :href="slide.url" target="_blank" rel="noopener noreferrer" class="item"><img :src="get_url(slide.img)" alt=""></a>
         </Slide>
 
@@ -60,14 +60,12 @@
     </div>
 
     <div class="showreel marg-ar">
-      <h3>Шоукейсы</h3>
-      <p>Наша работа - не просто написать пару нот в секвенсоре и сгенерировать
-        абстрактную картинку нейросетью, а провести проект от задумки до показа.
-        И вот как это выглядит:</p>
+      <h3>{{ $t('home.showcases') }}</h3>
+      <p>{{ $t('home.showreelText') }}</p>
       <div class="video play" @click="open_video_on_full('https://www.youtube.com/embed/r3i-5_7ZwFA')">
         <img src="@/assets/photos/comp/showreel.jpg" alt="showreel">
       </div>
-      <span class="title">ACRNM LAB Showreel 2023</span>
+      <span class="title">{{ $t('home.showreelTitle') }}</span>
     </div>
 
     <div class="cases">
@@ -75,7 +73,7 @@
 
 
       <Carousel :wrap-around="true" :breakpoints="breakpoints" ref="myCarousel2">
-        <Slide v-for="slide in showcases " :key="slide">
+        <Slide v-for="slide in showcases" :key="slide">
           <div class="item play" @click="open_video_on_full(slide.url)"><img :src="get_url(slide.img)" alt=""></div>
         </Slide>
 
@@ -84,10 +82,10 @@
         </template>
       </Carousel>
 
-      <span class="title">MUSIC, SOUNDDESIGN & CG SHOWCASES</span>
+      <span class="title">{{ $t('home.showcasesTitle') }}</span>
     </div>
     <div class="contact-us">
-      <span class="title">Связаться с нами</span>
+      <span class="title">{{ $t('home.contactUs') }}</span>
       <span class="tel">+7 (915) 304-87-71</span>
       <span class="mail">pr.acrnm@gmail.com</span>
       <div class="icons">

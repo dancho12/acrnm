@@ -2,16 +2,14 @@
   <main>
     <Logo />
     <div class="title-block">
-      <h3>Наши работы</h3>
-      <span class="subtitle">Всё самое крутое что мы делали</span>
-      <p>Пожалуй, самый увлекательный блок на этом сайте, ведь здесь собраны самые лучшие работы как целой команды, так
-        и отдельных наших специалистов, рассказы о том, как они создавались, и то, что любят все - красивые картинки
-        без лишней воды.</p>
+      <h3>{{ $t('portfolio.title') }}</h3>
+      <span class="subtitle">{{ $t('portfolio.subtitle') }}</span>
+      <p>{{ $t('portfolio.description') }}</p>
     </div>
     <div class="tabs">
-      <span class="tab" :class="{ selected: tab == 'watch' }" @click="tab = 'watch'">Посмотреть</span>
+      <span class="tab" :class="{ selected: tab == 'watch' }" @click="tab = 'watch'">{{ $t('portfolio.tabWatch') }}</span>
       <span>|</span>
-      <span class="tab" :class="{ selected: tab == 'listen' }" @click="tab = 'listen'">Послушать</span>
+      <span class="tab" :class="{ selected: tab == 'listen' }" @click="tab = 'listen'">{{ $t('portfolio.tabListen') }}</span>
     </div>
     <div v-if="tab == 'watch'" class="content-container marg-ar">
 
@@ -40,17 +38,15 @@
 
     </div>
 
-    <p class="last-info">О некоторых проектах мы пока не можем рассказать из-за НДА и прочих юридических прелестей.
-      Однако всё впереди и будьте уверены, что это не только самый интересный, но и
-      самый обновляемый раздел на сайте.</p>
+    <p class="last-info">{{ $t('portfolio.lastInfo') }}</p>
 
 
   </main>
 </template>
 
 <script>
-import { defineComponent, inject, ref } from 'vue'
-
+import { defineComponent, inject, ref, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 
 export default defineComponent({
@@ -73,129 +69,130 @@ export default defineComponent({
         open_id.value = null
       }
     }
-    const watch_items = ref([
+    const { t } = useI18n()
+    const watch_items = computed(() => ([
       {
-        name: "Atomic Heart:<br>Инстинкт Истребления",
-        info1: "Летом 2023 года мы познакомились с исполнителем ScaryOn, участвовавшим в создании саундтрека к игре. Незадолго до выхода дополнения, он попросил нас помочь ему в продюсировании нескольких треков и записать озвучку радио-голосов для трейлера.",
-        info2: "Так и мы стали частью большой гордости Российского геймдева, оказавшись в трейлере и в самой игре с треком BEA-2 Theme.",
-        author: "Яков Шостакович",
+        name: t('portfolio.watchItems.atomic.name'),
+        info1: t('portfolio.watchItems.atomic.info1'),
+        info2: t('portfolio.watchItems.atomic.info2'),
+        author: t('portfolio.watchItems.atomic.author'),
         link: "https://www.youtube.com/watch?v=7x2Y3Uq8Mko",
         img: new URL("@/assets/photos/comp/atomic-2-min.png", import.meta.url).href,
         class: "atomic"
       },
       {
-        name: "VK Видео: Адская Школа",
-        info1: "Осенью 2023 к нам обратились из VK видео и МШК с просьбой записать и обработать звук для пилотного эпизода сериала про “Игру в кальмара” в российских реалиях. Проект был сложным, но крайне интересным. Более того, специально для сериала мы написали заглавную тему в исполнении великолепной Екатерины Проскуры.",
-        info2: "Пилот участвовал в тендере VK и занял лидирующее место в списке перспективных сериалов площадки",
-        author: "Яков Шостакович, Михаил Бурый, Екатерина Проскура",
+        name: t('portfolio.watchItems.hell.name'),
+        info1: t('portfolio.watchItems.hell.info1'),
+        info2: t('portfolio.watchItems.hell.info2'),
+        author: t('portfolio.watchItems.hell.author'),
         link: "https://youtu.be/IU0AJHgbldg",
         img: new URL("@/assets/photos/comp/hell-min.png", import.meta.url).href,
       },
       {
-        name: "P&G:<br>Beyond The Pattern",
-        info1: "Летом 2024 нам позвонили ребята из компании P&G, с просьбой нарисовать для них ролик-открытие их мероприятия в кинотеатре Октябрь (да, графикой мы тоже занимаемся), а также написать для него музыку, исполненную в итоге барабанным оркестром вживую!",
-        info2: "Безусловно, мы были шокированны таким уважаемым гостем, и боялись не оправдать возложенных на нас ожиданий. Тем не менее, пускай честно говоря ценой многих бессонных ночей и целого месяца трудоёмкой работы - оставили заказчиков довольными! Показать мы правда вам этого не можем, НДА, все дела.",
-        author: "Илья Яковенко, Илья Мельников, Кирилл Кокин, Яков Шостакович",
+        name: t('portfolio.watchItems.p&g.name'),
+        info1: t('portfolio.watchItems.p&g.info1'),
+        info2: t('portfolio.watchItems.p&g.info2'),
+        author: t('portfolio.watchItems.p&g.author'),
         img: new URL("@/assets/photos/comp/p&g.jpg", import.meta.url).href,
       },
       {
-        name: "Пятёрочка",
-        info1: "Наши друзья из студии Clout обратились к нам за помощью со звуком в рекламной кампании Пятёрочки в честь дня космонавтики. ",
-        info2: "Как мы неоднократно повторяем - звук важен ровно настолько же, насколько важна качественная картинка. А в данном случае тем более - ведь в для промороликов мы записывали прекрасный мощный голос Александра Пушного.<br><br>А оскорбить мастера музыки и ээээкспериментов мы ну никак не могли.",
-        author: "Яков Шостакович, Михаил Бурый",
+        name: t('portfolio.watchItems.pyaterochka.name'),
+        info1: t('portfolio.watchItems.pyaterochka.info1'),
+        info2: t('portfolio.watchItems.pyaterochka.info2'),
+        author: t('portfolio.watchItems.pyaterochka.author'),
         link: "https://cloutstudio.ru/project/5ka", // Добавьте правильную ссылку
         img: new URL("@/assets/photos/comp/pyaterochka.png", import.meta.url).href,
       },
       {
-        name: "Bourgeois Bohème",
-        info1: "Наши друзья из студии Argument Agency попросили нас создать музыкальное сопровождение и саунд-дизайн для рекламного ролика европейской платёжной системы - Borgeois Boheme.",
-        info2: 'Да, сама работа была достаточно простой, и делимся мы ею в первую очередь ради имени бренда. Но есть и интересное: при работе над проектом, мы никак не могли подобрать подходящее звучание для музыки. Она должна быть одновременно бодрой, но при этом достаточно классической и "богатой". <br><br>По итогу, в качестве вдохновения - отлично помог фильм  "Now You See Me".',
-        author: "Яков Шостакович, Мирослав Стефанский ",
+        name: t('portfolio.watchItems.bb.name'),
+        info1: t('portfolio.watchItems.bb.info1'),
+        info2: t('portfolio.watchItems.bb.info2'),
+        author: t('portfolio.watchItems.bb.author'),
         img: new URL("@/assets/photos/comp/bb.jpg", import.meta.url).href,
       },
       {
-        name: "IQOS:<br>POP Experience",
-        info1: "Один из самых странных, и тем не менее, безумно интересных проектов, которые мы делали. ",
-        info2: "К нам обратились за написанием звукового сопровождения и озвучки интерфейса для AR презентации продукции компании, при помощи шлема дополненной реальности Apple Vision Pro. <br><br>Работа включает в себя эдакий многослойный пирог из звуков эффектов и элементов интерфейса, переплетающихся вместе в единую симфонию.",
-        author: "Яков Шостакович",
+        name: t('portfolio.watchItems.iqos.name'),
+        info1: t('portfolio.watchItems.iqos.info1'),
+        info2: t('portfolio.watchItems.iqos.info2'),
+        author: t('portfolio.watchItems.iqos.author'),
         img: new URL("@/assets/photos/comp/iqos.png", import.meta.url).href,
       },
       {
-        name: "Fitmost",
-        info1: "Подруга студенчества обратилась к нам за написанием музыкального сопровождения для рекламы приложения Fitmost, которое мало того что поддерживало бы динамику происходящего на экране, но при этом же работало как своеобразный саунд-дизайн само по себе. ",
-        info2: "В результате у нас получилось совместить около пяти музыкальных жанров в одной композиции, добавив туда множество элементов из реального мира, работающих как оркестр.",
-        author: "Яков Шостакович, Ирина Вязникова",
+        name: t('portfolio.watchItems.fitmost.name'),
+        info1: t('portfolio.watchItems.fitmost.info1'),
+        info2: t('portfolio.watchItems.fitmost.info2'),
+        author: t('portfolio.watchItems.fitmost.author'),
         img: new URL("@/assets/photos/comp/fitmost.jpg", import.meta.url).href,
       },
       {
-        name: "Sofia Doors:<br>Solaris",
-        info1: "Не так давно мы познакомились с коллегами Argument Agency, которые в тот момент работали над рекламной кампанией Sofia Doors, приуроченной к новой линейке продукции, вдохновлённой фильмом “Солярис” Андрея Тарковского.",
-        info2: "Ребята тоже талантливые дизайнеры, но им не хватало грамотной визуализации задумки и проработки аудио-концепции, в чём мы им и помогли.",
-        author: "Илья Яковенко, Яков Шостакович",
+        name: t('portfolio.watchItems.sofia.name'),
+        info1: t('portfolio.watchItems.sofia.info1'),
+        info2: t('portfolio.watchItems.sofia.info2'),
+        author: t('portfolio.watchItems.sofia.author'),
         link: "https://sofiadoors.com/blog/solyaris/",
         img: new URL("@/assets/photos/comp/sofia.jpg", import.meta.url).href,
       },
       {
-        name: "Radio Volna",
-        info1: "Один из сложнейших и запутаннейших проектов за последнее время, тем не менее - такой же интригующий и интересный. ",
-        info2: "Дубайское радио обратилось к нам за полным обновлением “одежды” своего эфира. Заказчик не хотел идти по классическим тропам радиовещаниях с диджейскими сбивками и бархатным мужским и звонким женским голосами, читающими лозунги станции.<br><br>По итогу мы пришли к необычной смеси славянских фольклорных напевов с поп-музыкой, обозначающей суть и специфику единственного русского радио в Дубае - естественнейшим из путей: музыкой! ",
-        author: "Яков Шостакович, Екатерина Проскура ",
+        name: t('portfolio.watchItems.volna.name'),
+        info1: t('portfolio.watchItems.volna.info1'),
+        info2: t('portfolio.watchItems.volna.info2'),
+        author: t('portfolio.watchItems.volna.author'),
         link: "https://volna.ae/", // Добавьте правильную ссылку
         img: new URL("@/assets/photos/comp/volna.jpg", import.meta.url).href,
       },
       {
-        name: "Браслет",
-        info1: "“Скандальный” и эпохальный, этот спектакль родился из золотой классики, умудрившись перевернуть представление всей нашей команды о концептуализации и театре в принципе. ",
-        info2: "Режиссёр спектакля Виктор Шахбазов попросил нас написать полноценное музыкальное сопровождение к пьесе, и внезапно, как-то умудриться адаптировать песню “Меладзе - Салют Вера” - под II сонату Бетховена, скрестив оба произведения воедино.<br<br>Удивительно, но у нас получилось! А послушать шедевр можно в соседнем окне. ",
-        author: "Яков Шостакович, Екатерина Проскура, Анжелика Чайко",
+        name: t('portfolio.watchItems.braslet.name'),
+        info1: t('portfolio.watchItems.braslet.info1'),
+        info2: t('portfolio.watchItems.braslet.info2'),
+        author: t('portfolio.watchItems.braslet.author'),
         img: new URL("@/assets/photos/comp/braslet.png", import.meta.url).href,
         class: "braslet"
       },
       {
-        name: "StoryScape:<br>Tales & Stories",
-        info1: "Постоянные участники этого раздела (угадайте кто) заказали у нас музыкальное сопровождение и саунд-дизайн для промо-ролика игры StoryScape, использующей нейросети по созданию изображения и текстов, для естественного и увлекательного обучения детей. ",
-        info2: "Что интересно, проект мы сдали ещё год назад, однако разработчики примерно раз в несколько месяцев возвращаются с новой версией монтажа и механик, из-за чего работа стала для нас своеборазным пособием по тому, в чём мы профессионально подросли, а в чём ещё нет.",
+        name: t('portfolio.watchItems.storyscape.name'),
+        info1: t('portfolio.watchItems.storyscape.info1'),
+        info2: t('portfolio.watchItems.storyscape.info2'),
         author: "Яков Шостакович ",
         img: new URL("@/assets/photos/comp/storyscape.jpg", import.meta.url).href,
       },
       {
-        name: "Новая Земля",
-        info1: "Дипломный проект Михаила Нистратова, с увлекательнейшим и редчайшим видеоигровым сеттингом - исследованием острова Новая Земля учёными времён царской России. ",
-        info2: "Это пожалуй любимая тематика нашего композитора, поэтому несмотря на скромные начала - мы взялись за проект с головой, написав главную тему для игры, и проложив путь для общего звука и атмосферы будущего проекта.",
-        author: "Яков Шостакович, Дмитрий Качер",
+        name: t('portfolio.watchItems.newland.name'),
+        info1: t('portfolio.watchItems.newland.info1'),
+        info2: t('portfolio.watchItems.newland.info2'),
+        author: t('portfolio.watchItems.newland.author'),
         link: "https://youtu.be/y_YdupsmU-A?si=heQwXnWJ-jqeAcUd", // Замените на реальную ссылку
         img: new URL("@/assets/photos/comp/newland.jpg", import.meta.url).href,
       },
       {
-        name: "Organic",
-        info1: "Organic - это документальный проект Егора Субботина о флоре и фауне разных штатов Америки, выигравший множество наград по всему миру. В конце 2022 года мы приняли участие в разработке аудио-визуальной концепции проекта, создали музыкальное сопровождение к трейлеру и промо.",
-        info2: "А сейчас продолжаем работу над экранизацией в формате сериала на площадки Netflix и Amazon.",
-        author: "Яков Шостакович, Егор Субботин ",
+        name: t('portfolio.watchItems.organic.name'),
+        info1: t('portfolio.watchItems.organic.info1'),
+        info2: t('portfolio.watchItems.organic.info2'),
+        author: t('portfolio.watchItems.organic.author'),
         link: "https://vimeo.com/915796876",
         img: new URL("@/assets/photos/comp/organic.jpg", import.meta.url).href,
       },
       {
-        name: "ELK",
-        info1: "Наш авторский короткометражный фильм, выполненный в технике смешения реальности с абстрактной анимацией. ",
-        info2: "Делали его долго, сложно, и не совсем так как он изначально задумывался - но это один из интереснейших опытов в работе, что у нас когда либо был.",
-        author: "Яков Шостакович, Сергей Тамбов",
+        name: t('portfolio.watchItems.elk.name'),
+        info1: t('portfolio.watchItems.elk.info1'),
+        info2: t('portfolio.watchItems.elk.info2'),
+        author: t('portfolio.watchItems.elk.author'),
         link: "https://example.com/elk", // Добавьте правильную ссылку
         img: new URL("@/assets/photos/comp/elk.jpg", import.meta.url).href,
         class: "elk"
       },
 
 
-    ]);
+    ]));
 
 
-    const albums = [
+    const albums = computed(() => ([
       {
-        title: "Atomic Heart:<br>Инстинкт Истребления",
+        title: t('portfolio.listen.albums.atomic.title'),
         cover: new URL("@/assets/photos/comp/atomic-2-min.png", import.meta.url).href,
         vinyl: new URL("@/assets/audio/covers/Vinyl.png", import.meta.url).href,
         link: {
-          title: "Слушать на Яндекс.Музыке",
-          href: "https://music.yandex.ru/album/26779794/track/115947933"
+          title: t('portfolio.listen.albums.atomic.link.title'),
+          href: t('portfolio.listen.albums.atomic.link.href')
         },
         tracks: [
           {
@@ -225,7 +222,7 @@ export default defineComponent({
         ]
       },
       {
-        title: "Новая Земля",
+        title: t('portfolio.listen.albums.newland.title'),
         cover: new URL("@/assets/audio/covers/newland.jpg", import.meta.url).href,
         vinyl: new URL("@/assets/audio/covers/Vinyl-newland.png", import.meta.url).href,
 
@@ -237,7 +234,7 @@ export default defineComponent({
         ]
       },
       {
-        title: "Браслет",
+        title: t('portfolio.listen.albums.braslet.title'),
         cover: new URL("@/assets/audio/covers/braslet.jpg", import.meta.url).href,
         vinyl: new URL("@/assets/audio/covers/Vinyl-braslet.png", import.meta.url).href,
         reverse: true,
@@ -257,12 +254,12 @@ export default defineComponent({
         ]
       },
       {
-        title: "Яков Шостакович:<br>Избранное",
+        title: t('portfolio.listen.albums.yakov.title'),
         cover: new URL("@/assets/audio/covers/favorite.jpg", import.meta.url).href,
         vinyl: new URL("@/assets/audio/covers/Vinyl-favorite.png", import.meta.url).href,
         link: {
-          title: "Слушать на Яндекс.Музыке",
-          href: "https://music.yandex.ru/artist/16390612"
+          title: t('portfolio.listen.albums.yakov.link.title'),
+          href: t('portfolio.listen.albums.yakov.link.href')
         },
         tracks: [
           {
@@ -315,13 +312,13 @@ export default defineComponent({
         ]
       },
       {
-        title: "ОВЕН",
+        title: t('portfolio.listen.albums.oven.title'),
         cover: new URL("@/assets/audio/covers/oven.jpg", import.meta.url).href,
         vinyl: new URL("@/assets/audio/covers/Vinyl-oven.png", import.meta.url).href,
         reverse: true,
         link: {
-          title: "Слушать на Яндекс.Музыке",
-          href: "https://music.yandex.ru/users/yamusic-bestsongs/playlists/9425114"
+          title: t('portfolio.listen.albums.oven.link.title'),
+          href: t('portfolio.listen.albums.oven.link.href')
         },
         tracks: [
           {
@@ -336,13 +333,9 @@ export default defineComponent({
             title: "Овен - Бог Мой",
             audio: new URL("@/assets/audio/Овен - Бог Мой.mp3", import.meta.url).href,
           },
-          {
-            title: "Овен - Хозяйка",
-            audio: new URL("@/assets/audio/Овен - Хозяйка.mp3", import.meta.url).href,
-          },
         ]
       },
-    ]
+    ]));
 
 
 

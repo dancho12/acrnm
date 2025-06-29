@@ -62,7 +62,7 @@
     <div class="showreel marg-ar">
       <h3>{{ $t('home.showcases') }}</h3>
       <p>{{ $t('home.showreelText') }}</p>
-      <div class="video play" @click="open_video_on_full('https://www.youtube.com/embed/r3i-5_7ZwFA')">
+      <div class="video play" @click="open_video_on_full('https://www.youtube.com/watch?v=na8apsjd-bs')">
         <img src="@/assets/photos/comp/showreel.jpg" alt="showreel">
       </div>
       <span class="title">{{ $t('home.showreelTitle') }}</span>

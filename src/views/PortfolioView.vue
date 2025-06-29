@@ -81,12 +81,12 @@ export default defineComponent({
         class: "atomic"
       },
       {
-        name: t('portfolio.watchItems.hell.name'),
-        info1: t('portfolio.watchItems.hell.info1'),
-        info2: t('portfolio.watchItems.hell.info2'),
-        author: t('portfolio.watchItems.hell.author'),
-        link: "https://youtu.be/IU0AJHgbldg",
-        img: new URL("@/assets/photos/comp/hell-min.png", import.meta.url).href,
+        name: t('portfolio.watchItems.ritual.name'),
+        info1: t('portfolio.watchItems.ritual.info1'),
+        info2: t('portfolio.watchItems.ritual.info2'),
+        author: t('portfolio.watchItems.ritual.author'),
+        link: "https://www.youtube.com/watch?v=na8apsjd-bs",
+        img: new URL("@/assets/photos/comp/ritual.jpg", import.meta.url).href,
       },
       {
         name: t('portfolio.watchItems.p&g.name'),
@@ -118,11 +118,12 @@ export default defineComponent({
         img: new URL("@/assets/photos/comp/iqos.png", import.meta.url).href,
       },
       {
-        name: t('portfolio.watchItems.fitmost.name'),
-        info1: t('portfolio.watchItems.fitmost.info1'),
-        info2: t('portfolio.watchItems.fitmost.info2'),
-        author: t('portfolio.watchItems.fitmost.author'),
-        img: new URL("@/assets/photos/comp/fitmost.jpg", import.meta.url).href,
+        name: t('portfolio.watchItems.WoT.name'),
+        info1: t('portfolio.watchItems.WoT.info1'),
+        info2: t('portfolio.watchItems.WoT.info2'),
+        author: t('portfolio.watchItems.WoT.author'),
+        link: "https://www.youtube.com/watch?v=b0TGPcpWhss",
+        img: new URL("@/assets/photos/comp/wot.jpg", import.meta.url).href,
       },
       {
         name: t('portfolio.watchItems.sofia.name'),
@@ -141,11 +142,12 @@ export default defineComponent({
         img: new URL("@/assets/photos/comp/volna.jpg", import.meta.url).href,
       },
       {
-        name: t('portfolio.watchItems.braslet.name'),
-        info1: t('portfolio.watchItems.braslet.info1'),
-        info2: t('portfolio.watchItems.braslet.info2'),
-        author: t('portfolio.watchItems.braslet.author'),
-        img: new URL("@/assets/photos/comp/braslet.png", import.meta.url).href,
+        name: t('portfolio.watchItems.lc.name'),
+        info1: t('portfolio.watchItems.lc.info1'),
+        info2: t('portfolio.watchItems.lc.info2'),
+        author: t('portfolio.watchItems.lc.author'),
+        link: "https://t.me/ave_repin/4069",
+        img: new URL("@/assets/photos/comp/lc.jpg", import.meta.url).href,
         class: "braslet"
       },
       {

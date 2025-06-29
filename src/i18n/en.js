@@ -69,8 +69,8 @@ export default {
                 info2: "That’s how we became part of a major achievement in Russian game development — our work can be heard both in the trailer and the game itself, with the track BEA-2 Theme.",
                 author: "Yakov Shostakovich"
             },
-            "hell": {
-                name: "White Punk - RITUAL: PROLOGUE",
+            "ritual": {
+                name: "White Punk - Ritual: Prologue",
                 info1: "In winter 2025, we teamed up with the production house Ave Warriors and the artist Whitepunk, who was preparing a short film to promote his new album. The film tells the story of a squad of knights facing a chthonic entity that slowly drives them mad.",
                 info2: "Our contribution? Original music, full sound redesign, and multilingual voice acting — all crafted to plunge the viewer into this dark, haunting universe.",
                 author: "Yakov Shostakovich, Michael Grubin, Ekaterina Proskura, Kirill Kokin"
@@ -99,7 +99,7 @@ export default {
                 info2: "We were asked to create music and UI sound design for an AR presentation of IQOS products, using the Apple Vision Pro headset.<br><br>The result is a layered composition of interface sounds and effects, woven together into one seamless symphony.",
                 author: "Yakov Shostakovich"
             },
-            "Wow": {
+            "WoT": {
                 name: "World Of Tanks & Near.You",
                 info1: "This one came out of left field: we were asked to score and voice a cinematic-style trailer for World of Tanks — think Hollywood epic more than classic game ad.",
                 info2: "Challenge accepted. The final result is one of the most unique campaigns the game has ever launched: complete with a narrative-driven mix, expressive sound design, and even a poetic monologue voiced by a mysterious narrator.<br><br>Created for World of Tanks and Ave Warriors Team.",
@@ -117,7 +117,7 @@ export default {
                 info2: "A Russian-language radio station in Dubai approached us to completely refresh their sonic identity. They didn’t want the usual DJ stingers or polished male/female voiceovers.<br><br>Instead, we created a unique blend of Slavic folk vocals and pop music — capturing the soul of the only Russian radio station in the Emirates.",
                 author: "Yakov Shostakovich, Ekaterina Proskura"
             },
-            "braslet": {
+            "lc": {
                 name: "Leningrad Centre",
                 info1: "A stunning campaign for the St. Petersburg theater Leningrad Centre, released for International Women’s Day.",
                 info2: "Shot in the glamorous style of a 1920s Gatsby jazz club, the video walks a razor-thin line between passionate boldness and refined elegance.<br><br>That exact balance — sensual but restrained, rich but intimate — is what we captured in the sound of this campaign.",
@@ -154,7 +154,7 @@ export default {
                     title: "Atomic Heart:<br>Annihilation Instinct",
                     link: {
                         title: "Listen on Spotify",
-                        href: "https://open.spotify.com/track/2a1pS01DgVZ9yRI9oVJKpe?si=9c3b6abcb88c4a67"
+                        href: "https://open.spotify.com/track/2a1pS01DgVZ9yRI9oVJKpe?si=d1ccd78735344294"
                     }
                 },
                 "newland": {

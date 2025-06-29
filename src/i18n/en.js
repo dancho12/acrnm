@@ -13,7 +13,7 @@ export default {
     },
     contact: {
         title: "Contact Us",
-        subtitle: "Get in touch to collaborate or work with us — we’re always open to a conversation",
+        subtitle: "Get in touch to collaborate or work with us<br> — we’re always open to a conversation",
         email: "General inquiries: ",
         phone: "Phone: ",
         messengers: "Socials & messengers:"

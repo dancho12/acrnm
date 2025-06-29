@@ -8,7 +8,7 @@
         <div class="contact">
             <div class="info">
                 <span>{{ $t('contact.email') }}<strong>pr.acrnm@gmail.com</strong></span>
-                <span>{{ $t('contact.phone') }}<strong>+7 (915) 304-87-71</strong></span>
+                <span v-if="$i18n.locale !== 'en'">{{ $t('contact.phone') }}<strong>+7 (915) 304-87-71</strong></span>
                 <span>{{ $t('contact.messengers') }}</span>
                 <div class="icons">
                     <a href="https://t.me/yakov_ovven" target="_blank" rel="noopener noreferrer">

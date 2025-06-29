@@ -21,7 +21,7 @@
 
           <div class="info">
             <span>{{ item.author }}</span>
-            <a v-if="item.link != undefined" :href="item.link" target="_blank" rel="noopener noreferrer">Смотреть</a>
+            <a v-if="item.link != undefined" :href="item.link" target="_blank" rel="noopener noreferrer">{{ $t('portfolio.tabWatch') }}</a>
           </div>
         </div>
         <div class="pic" @click="open_item(key)">
@@ -367,7 +367,15 @@ export default defineComponent({
     cursor: pointer;
 
     min-width: 120px;
-    text-align: center;
+
+    &:first-of-type {
+      text-align: end;
+    }
+
+    &:last-of-type {
+      text-align: start;
+    }
+
 
     &:hover,
     &.selected {

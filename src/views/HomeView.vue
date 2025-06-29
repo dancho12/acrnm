@@ -21,18 +21,18 @@
       <div class="cards">
         <div class="card">
           <span class="title">{{ $t('home.cards.card1.title') }}</span>
-          <p>{{ $t('home.cards.card1.desc1') }}</p>
-          <p>{{ $t('home.cards.card1.desc2') }}</p>
+          <p v-html="$t('home.cards.card1.desc1')"></p>
+          <p v-html="$t('home.cards.card1.desc2')"></p>
         </div>
         <div class="card">
           <span class="title">{{ $t('home.cards.card2.title') }}</span>
-          <p>{{ $t('home.cards.card2.desc1') }}</p>
-          <p>{{ $t('home.cards.card2.desc2') }}</p>
+          <p v-html="$t('home.cards.card2.desc1')"></p>
+          <p v-html="$t('home.cards.card2.desc2')"></p>
         </div>
         <div class="card">
           <span class="title">{{ $t('home.cards.card3.title') }}</span>
-          <p>{{ $t('home.cards.card3.desc1') }}</p>
-          <p>{{ $t('home.cards.card3.desc2') }}</p>
+          <p v-html="$t('home.cards.card3.desc1')"></p>
+          <p v-html="$t('home.cards.card3.desc2')"></p>
         </div>
       </div>
     </div>
@@ -86,7 +86,7 @@
     </div>
     <div class="contact-us">
       <span class="title">{{ $t('home.contactUs') }}</span>
-      <span class="tel">+7 (915) 304-87-71</span>
+      <span v-if="$i18n.locale !== 'en'" class="tel">+7 (915) 304-87-71</span>
       <span class="mail">pr.acrnm@gmail.com</span>
       <div class="icons">
         <a href="https://t.me/yakov_ovven" target="_blank" rel="noopener noreferrer">

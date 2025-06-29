@@ -2,21 +2,21 @@ export default {
     menu: {
         portfolio: "Projects",
         about: "About",
-        contact: "Contacts"
+        contact: "Contact Us"
     },
     about: {
         title: "Who we are",
-        subtitle: "And what we have to say about ourselves",
-        p1: "In essence, Acronym Lab is a kind of creative cluster consisting of friends and colleagues from the film and advertising media industry. We all know what we are doing, as we have been developing and continue to develop in our field for a long time. Moreover, we understand each other well and know our strengths and weaknesses.",
-        p2: "Initially, we realized how strong the connection between sound and visuals is, especially in dynamics, especially for advertising. These are exactly the areas that usually do not follow the typical logic of storytelling, images on the screen, music, and sound. Therefore, it is extremely important that both elements we have chosen work to the maximum, leaving no questions for the viewer and not creating confusion.",
-        p3: "And to learn more about what and how we do - check out the"
+        subtitle: "And what we've got to say about ourselves",
+        p1: "At its core, Acronym Lab is a creative cluster — a group of friends and collaborators from the worlds of film and media. We know what we’re doing, because we’ve been doing it for a long time — evolving within our craft and alongside each other. We understand one another, and we know our strengths (and our weaknesses).",
+        p2: "From the very beginning, we realized how powerful the connection is between sound and visuals — especially in motion, especially in advertising. These are areas where traditional logic — of story, image, music, or sound — often breaks down. That’s why it’s critical for both of our core elements to work in sync, at full force, leaving the viewer engaged and not confused.",
+        p3: "Want to see how that plays out in real life? Head over to"
     },
     contact: {
-        title: "Contacts",
-        subtitle: "Contact us for work or together with us. <br>We are always happy to chat.",
-        email: "General email: ",
+        title: "Contact Us",
+        subtitle: "Get in touch to collaborate or work with us — we’re always open to a conversation",
+        email: "General inquiries: ",
         phone: "Phone: ",
-        messengers: "Messengers and social networks:"
+        messengers: "Socials & messengers:"
     },
     notfound: {
         title: "Oops!",
@@ -27,134 +27,134 @@ export default {
     },
     home: {
         logoText: "Music & Sound<br>Production",
-        mainTitle: "In short",
-        mainText: "We are engaged in music and sound engineering for advertising and cinema, exhibitions and theater. Thanks to a targeted approach to these two areas, we achieve the best result.",
-        ourWorks: "Our works",
-        bestRecent: "The best of recent times",
+        mainTitle: "Straight to the Point",
+        mainText: "We create music and sound for advertising, film, games, and theatre. By focusing precisely on these two areas, we deliver the best possible result",
+        ourWorks: "Selected Work",
+        bestRecent: "Our recent highlights",
         showcases: "Showcases",
-        showreelText: "Our work is not just to write a couple of notes in a sequencer and generate. And this is how it looks:",
-        showreelTitle: "ACRNM LAB Showreel 2023",
+        showreelText: "Our work is never “just a few notes in a DAW” or “a random AI-generated score”. We carry projects from concept to final delivery. Here’s how that process looks:",
+        showreelTitle: "ACRNM LAB & AVE WARRIORS - RITUAL",
         showcasesTitle: "MUSIC, SOUNDDESIGN & CG SHOWCASES",
         contactUs: "Contact us",
         cards: {
             card1: {
                 title: "Music",
-                desc1: "Classical and modern genres, Own studio",
-                desc2: "Our main direction. We create music for advertising, cinema, and events"
+                desc1: "Classical to modern genres • In-house studio",
+                desc2: "Our core specialty.<br>We craft musical scores for commercials, films, games<br>and live events"
             },
             card2: {
                 title: "Sound",
-                desc1: "On-site & post-production sound engineering, Sound design",
-                desc2: "One of the most important parts of content production. We do everything related to sound"
+                desc1: "Post-production sound • Sound design & Foley",
+                desc2: "One of the most essential parts of content production. We handle everything related to sound — from recording to final mix"
             },
             card3: {
-                title: "Producing",
-                desc1: "Project management and contractor coordination",
-                desc2: "We will find the right professionals or help with execution"
+                title: "Production Supervision",
+                desc1: "Project management & creative coordination",
+                desc2: "We’ll find the right professionals — or take care of execution ourselves"
             }
         }
 
     },
     portfolio: {
-        title: "Our works",
-        subtitle: "All the coolest things we've done",
-        description: "Perhaps the most fascinating section on this site, because here are collected the best works of the whole team, as well as our individual specialists, stories about how they were created, and what everyone loves - beautiful pictures without unnecessary words.",
+        title: "Our work",
+        subtitle: "The coolest things we've done",
+        description: "Arguably the most exciting part of this site — here we showcase the best projects from our team and individual specialists, how they were made, and everyone’s favorite — stunning visuals with no fluff.",
         tabWatch: "Watch",
         tabListen: "Listen",
-        lastInfo: "We cannot yet talk about some projects due to NDAs and other legal niceties. However, everything is ahead, and be sure that this is not only the most interesting but also the most frequently updated section on the site.",
+        lastInfo: "Some projects are still under NDA. But rest assured — this is the most exciting and frequently updated part of our site.",
         watchItems: {
             "atomic": {
-                name: "Atomic Heart:<br>Instinct of Extermination",
-                info1: "In the summer of 2023, we met the artist ScaryOn, who participated in creating the game's soundtrack. Shortly before the release of the DLC, he asked us to help produce several tracks and record radio voices for the trailer.",
-                info2: "So we became part of the great pride of Russian game development, appearing in the trailer and in the game itself with the track BEA-2 Theme.",
+                name: "Atomic Heart:<br>Annihilation Instinct",
+                info1: "In summer 2023, we met ScaryOn, one of the contributors to the Atomic Heart soundtrack. Just before the DLC release, he asked us to help produce several tracks and record the radio voices for the trailer.",
+                info2: "That’s how we became part of a major achievement in Russian game development — our work can be heard both in the trailer and the game itself, with the track BEA-2 Theme.",
                 author: "Yakov Shostakovich"
             },
             "hell": {
-                name: "VK Video: Hell School",
-                info1: "In autumn 2023, VK Video and MSHK approached us to record and process sound for the pilot episode of a series about the 'Squid Game' in Russian realities. The project was complex but extremely interesting. Moreover, we wrote the main theme for the series, performed by the wonderful Ekaterina Proskura.",
-                info2: "The pilot participated in the VK tender and took a leading place among the platform's promising series.",
-                author: "Yakov Shostakovich, Mikhail Bury, Ekaterina Proskura"
+                name: "White Punk - RITUAL: PROLOGUE",
+                info1: "In winter 2025, we teamed up with the production house Ave Warriors and the artist Whitepunk, who was preparing a short film to promote his new album. The film tells the story of a squad of knights facing a chthonic entity that slowly drives them mad.",
+                info2: "Our contribution? Original music, full sound redesign, and multilingual voice acting — all crafted to plunge the viewer into this dark, haunting universe.",
+                author: "Yakov Shostakovich, Michael Grubin, Ekaterina Proskura, Kirill Kokin"
             },
             "p&g": {
                 name: "P&G:<br>Beyond The Pattern",
-                info1: "In the summer of 2024, the guys from P&G called us and asked to create an opening video for their event at the Oktyabr cinema (yes, we also do graphics), as well as to compose music for it, which was eventually performed live by a drum orchestra!",
-                info2: "Of course, we were shocked by such a respected client and were afraid not to meet the expectations. Nevertheless, honestly, at the cost of many sleepless nights and a whole month of hard work, we left the customers satisfied! We can't show it to you, NDA and all that.",
+                info1: "In summer 2024, we got a surprise call from P&G, asking us to create an opening video for their event at the Oktyabr cinema (yes, we do graphics too), as well as compose a soundtrack — which ended up being performed live by a marching drum orchestra.",
+                info2: "We were both honored and terrified by the scale of the project. But after many sleepless nights and a solid month of work — we pulled it off. Unfortunately, we can’t show you the result. NDA, you know how it is.",
                 author: "Ilya Yakovenko, Ilya Melnikov, Kirill Kokin, Yakov Shostakovich"
             },
             "pyaterochka": {
                 name: "Pyaterochka",
-                info1: "Our friends from Clout Studio asked us to help with the sound for Pyaterochka's advertising campaign for Cosmonautics Day.",
-                info2: "As we have repeatedly said, sound is just as important as a quality picture. And in this case, even more so — for the promo videos, we recorded the wonderful powerful voice of Alexander Pushnoy.<br><br>And we simply could not offend the master of music and experiments.",
+                info1: "Our friends from Clout Studio asked us to handle sound production for Pyaterochka’s Cosmonautics Day campaign.",
+                info2: "As we always say — sound matters just as much as great visuals. Especially here, where we recorded the powerful voice of Alexander Pushnoy for the promo.<br><br>And we weren’t about to disappoint a true musical master.",
                 author: "Yakov Shostakovich, Mikhail Bury"
             },
             "bb": {
                 name: "Bourgeois Bohème",
-                info1: "Our friends from Argument Agency asked us to create music and sound design for a commercial for the European payment system Borgeois Boheme.",
-                info2: "Yes, the work itself was quite simple, and we share it primarily for the brand name. But here's something interesting: while working on the project, we couldn't find the right sound for the music. It had to be both energetic and quite classical and 'rich'. <br><br>As a result, the film 'Now You See Me' was a great inspiration.",
+                info1: "Argument Agency asked us to create the music and sound design for a commercial for the European payment system Bourgeois Bohème.",
+                info2: "It was a relatively simple project, and honestly, we’re sharing it mostly because of the brand’s name. But here’s the twist: we couldn’t quite land the right tone — it had to be energetic, classy, and rich at the same time.<br><br>In the end, inspiration came from an unexpected source: the film Now You See Me.",
                 author: "Yakov Shostakovich, Miroslav Stefansky"
             },
             "iqos": {
-                name: "IQOS:<br>POP Experience",
-                info1: "One of the strangest and, nevertheless, insanely interesting projects we've done.",
-                info2: "We were asked to create sound accompaniment and voice acting for the AR presentation of the company's products using the Apple Vision Pro headset. <br><br>The work is a kind of multi-layered pie of sound effects and interface elements, intertwining into a single symphony.",
+                name: "IQOS:<br>AVP Experience",
+                info1: "One of the strangest, and yet most fascinating projects we’ve ever done.",
+                info2: "We were asked to create music and UI sound design for an AR presentation of IQOS products, using the Apple Vision Pro headset.<br><br>The result is a layered composition of interface sounds and effects, woven together into one seamless symphony.",
                 author: "Yakov Shostakovich"
             },
-            "fitmost": {
-                name: "Fitmost",
-                info1: "A friend from student days asked us to compose music for the Fitmost app commercial, which not only supported the dynamics on the screen but also worked as a kind of sound design itself.",
-                info2: "As a result, we managed to combine about five musical genres in one composition, adding many elements from the real world, working like an orchestra.",
-                author: "Yakov Shostakovich, Irina Vyaznikova"
+            "Wow": {
+                name: "World Of Tanks & Near.You",
+                info1: "This one came out of left field: we were asked to score and voice a cinematic-style trailer for World of Tanks — think Hollywood epic more than classic game ad.",
+                info2: "Challenge accepted. The final result is one of the most unique campaigns the game has ever launched: complete with a narrative-driven mix, expressive sound design, and even a poetic monologue voiced by a mysterious narrator.<br><br>Created for World of Tanks and Ave Warriors Team.",
+                author: "Yakov Shostakovich"
             },
             "sofia": {
                 name: "Sofia Doors:<br>Solaris",
-                info1: "Not so long ago, we met colleagues from Argument Agency, who at that time were working on an advertising campaign for Sofia Doors, dedicated to a new product line inspired by Andrei Tarkovsky's film 'Solaris'.",
-                info2: "The guys are also talented designers, but they lacked a competent visualization of the idea and the development of the audio concept, which we helped them with.",
+                info1: "We met the folks at Argument Agency while they were working on a campaign for Sofia Doors' new product line, inspired by Tarkovsky’s Solaris.",
+                info2: "They had the visuals but needed help with the concept and audio direction — which we were happy to deliver.",
                 author: "Ilya Yakovenko, Yakov Shostakovich"
             },
             "volna": {
                 name: "Radio Volna",
-                info1: "One of the most difficult and confusing projects lately, but just as intriguing and interesting.",
-                info2: "A Dubai radio station asked us to completely update the 'clothes' of their broadcast. The client did not want to follow the classic paths of radio broadcasting with DJ jingles and velvet male and ringing female voices reading the station's slogans.<br><br>As a result, we came to an unusual mix of Slavic folk tunes with pop music, denoting the essence and specifics of the only Russian radio in Dubai — in the most natural way: with music!",
+                info1: "One of our most complex and confusing projects to date — and one of the most intriguing.",
+                info2: "A Russian-language radio station in Dubai approached us to completely refresh their sonic identity. They didn’t want the usual DJ stingers or polished male/female voiceovers.<br><br>Instead, we created a unique blend of Slavic folk vocals and pop music — capturing the soul of the only Russian radio station in the Emirates.",
                 author: "Yakov Shostakovich, Ekaterina Proskura"
             },
             "braslet": {
-                name: "Braslet",
-                info1: "'Scandalous' and epochal, this performance was born from golden classics, managing to change our entire team's view of conceptualization and theater in general.",
-                info2: "Director Viktor Shakhbazov asked us to write a full musical accompaniment for the play and, suddenly, somehow adapt the song 'Meladze - Salyut Vera' to Beethoven's Sonata II, combining both works into one.<br><br>Amazingly, we did it! And you can listen to the masterpiece in the next window.",
-                author: "Yakov Shostakovich, Ekaterina Proskura, Anzhelika Chaiko"
+                name: "Leningrad Centre",
+                info1: "A stunning campaign for the St. Petersburg theater Leningrad Centre, released for International Women’s Day.",
+                info2: "Shot in the glamorous style of a 1920s Gatsby jazz club, the video walks a razor-thin line between passionate boldness and refined elegance.<br><br>That exact balance — sensual but restrained, rich but intimate — is what we captured in the sound of this campaign.",
+                author: "Yakov Shostakovich"
             },
             "storyscape": {
                 name: "StoryScape:<br>Tales & Stories",
-                info1: "Regular participants of this section (guess who) ordered music and sound design for the promo video of the StoryScape game, which uses neural networks to create images and texts for natural and engaging children's learning.",
-                info2: "Interestingly, we delivered the project a year ago, but the developers return with a new version of the editing and mechanics about every few months, so the work has become a kind of guide for us on what we have grown professionally and what we have not yet.",
+                info1: "Our frequent collaborators asked us to create music and sound design for a promo of StoryScape — an educational kids’ game using AI-generated visuals and texts.",
+                info2: "We wrapped this one a year ago, but the developers keep coming back with new edits and features. So in a way, it’s become a benchmark for how we’ve grown — and where we still have room to improve.",
                 author: "Yakov Shostakovich"
             },
             "newland": {
                 name: "New Land",
-                info1: "The graduation project of Mikhail Nistratov, with the most fascinating and rare video game setting — the exploration of Novaya Zemlya Island by scientists of Tsarist Russia.",
-                info2: "This is probably our composer's favorite theme, so despite the modest beginnings, we took on the project wholeheartedly, writing the main theme for the game and paving the way for the overall sound and atmosphere of the future project.",
+                info1: "The graduation project of Mikhail Nistratov — a video game set on the Novaya Zemlya archipelago, explored by scientists during Imperial Russia.",
+                info2: "It’s a favorite setting for our composer, so we dove in — composing the game’s main theme and laying the groundwork for its sound world and atmosphere.",
                 author: "Yakov Shostakovich, Dmitry Kacher"
             },
             "organic": {
                 name: "Organic",
-                info1: "Organic is a documentary project by Egor Subbotin about the flora and fauna of various US states, which has won many awards worldwide. At the end of 2022, we participated in the development of the project's audiovisual concept, created music for the trailer and promo.",
-                info2: "And now we continue to work on the adaptation as a series for Netflix and Amazon platforms.",
+                info1: "A documentary by Egor Subbotin on American wildlife, Organic has won awards across the globe. In late 2022, we helped shape the audio-visual identity of the project — scoring the trailer and promotional materials.",
+                info2: "We’re now working on adapting the project into a series for Netflix and Amazon.",
                 author: "Yakov Shostakovich, Egor Subbotin"
             },
             "elk": {
                 name: "ELK",
-                info1: "Our own short film, made using a mix of reality and abstract animation.",
-                info2: "We made it for a long time, it was difficult, and not quite as originally intended — but it is one of the most interesting experiences we've ever had at work.",
+                info1: "Our own short film — a surreal blend of live action and abstract animation.",
+                info2: "It took forever, it changed along the way, and it was tough. But it’s one of the most fulfilling creative journeys we’ve ever had.",
                 author: "Yakov Shostakovich, Sergey Tambov"
             }
         },
         listen: {
             albums: {
                 "atomic": {
-                    title: "Atomic Heart:<br>Instinct of Extermination",
+                    title: "Atomic Heart:<br>Annihilation Instinct",
                     link: {
-                        title: "Listen on Yandex.Music",
-                        href: "https://music.yandex.ru/album/26779794/track/115947933"
+                        title: "Listen on Spotify",
+                        href: "https://open.spotify.com/track/2a1pS01DgVZ9yRI9oVJKpe?si=9c3b6abcb88c4a67"
                     }
                 },
                 "newland": {
@@ -166,8 +166,8 @@ export default {
                 "yakov": {
                     title: "Yakov Shostakovich:<br>Collection",
                     link: {
-                        title: "Listen on Yandex.Music",
-                        href: "https://music.yandex.ru/artist/16390612"
+                        title: "Listen on Spotify",
+                        href: "https://open.spotify.com/artist/7EnC2WDybJMnn9pjVTHzkx?si=eNFXn7GoRDGAMzmj9_JErA&nd=1&dlsi=34989104693242c8"
                     }
                 },
                 "hell": {
@@ -176,8 +176,8 @@ export default {
                 "oven": {
                     title: "Oven",
                     link: {
-                        title: "Listen on Yandex.Music",
-                        href: "https://music.yandex.ru/users/yamusic-bestsongs/playlists/9425114"
+                        title: "Listen on Spotify",
+                        href: "https://open.spotify.com/artist/71ZRMwgDi8MNi7aZHapKyg?si=_OMJ0Eh8QLiGAFf2hI8LlA"
                     }
                 }
             }

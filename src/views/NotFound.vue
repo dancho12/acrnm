@@ -46,7 +46,7 @@ p {
 }
 
 .black {
-    margin-top: 160px;
+    margin-top: 10vh;
     margin-left: auto;
     margin-right: auto;
     display: none;
@@ -58,7 +58,7 @@ p {
 }
 
 .white {
-    margin-top: 160px;
+    margin-top: 10vh;
     margin-left: auto;
     margin-right: auto;
     display: block;

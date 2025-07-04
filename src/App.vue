@@ -1,7 +1,7 @@
 <template>
   <header>
     <nav>
-      <RouterLink to="/portfolio">{{ $t('menu.portfolio') }}</RouterLink>
+      <RouterLink to="/projects">{{ $t('menu.portfolio') }}</RouterLink>
       <RouterLink to="/about">{{ $t('menu.about') }}</RouterLink>
       <RouterLink to="/contact">{{ $t('menu.contact') }}</RouterLink>
     </nav>
@@ -83,6 +83,10 @@ export default defineComponent({
   display: flex;
   flex-direction: column;
   gap: 8px;
+
+  @include is-mobile {
+    top: 85px;
+  }
 
 
   span {

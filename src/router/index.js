@@ -3,7 +3,7 @@ import {
   createWebHistory
 } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import PortfolioView from '../views/PortfolioView.vue'
+import ProjectsView from '../views/PortfolioView.vue'
 import ContactView from '../views/ContactView.vue'
 import AboutView from '../views/AboutView.vue'
 import ServicesView from '../views/ServicesView.vue'
@@ -18,9 +18,9 @@ const router = createRouter({
     component: HomeView
   },
   {
-    path: '/portfolio',
-    name: 'portfolio',
-    component: PortfolioView
+    path: '/projects',
+    name: 'projects',
+    component: ProjectsView
   },
   {
     path: '/contact',

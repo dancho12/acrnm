@@ -264,20 +264,28 @@ export default defineComponent({
 
   &-back {
     position: absolute;
-    width: 938px;
+    width: 414px;
     mix-blend-mode: var(--mix-blend-mode);
-    top: calc(50% - 264px);
-    left: calc(50% - 469px);
+    // top: calc(50% - 264px);
+    // left: calc(50% - 469px);
 
     @include is-mobile() {
-      width: 905px;
-      left: calc(50% - 455px);
+      width: 375px;
+      left: calc(50% - 187.5px);
     }
+  }
+
+  @include is-mobile() {
+    width: 100vw;
   }
 
   &-main {
     width: 344px;
     margin: auto;
+
+    @include is-mobile() {
+      width: 320px;
+    }
   }
 
   &-text {

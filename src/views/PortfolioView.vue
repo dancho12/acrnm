@@ -87,6 +87,7 @@ export default defineComponent({
         author: t('portfolio.watchItems.ritual.author'),
         link: "https://www.youtube.com/watch?v=na8apsjd-bs",
         img: new URL("@/assets/photos/comp/ritual.jpg", import.meta.url).href,
+        class: "ritual"
       },
       {
         name: t('portfolio.watchItems.p&g.name'),
@@ -148,7 +149,6 @@ export default defineComponent({
         author: t('portfolio.watchItems.lc.author'),
         link: "https://t.me/ave_repin/4069",
         img: new URL("@/assets/photos/comp/lc.jpg", import.meta.url).href,
-        class: "braslet"
       },
       {
         name: t('portfolio.watchItems.storyscape.name'),
@@ -516,11 +516,6 @@ export default defineComponent({
             height: unset !important;
           }
 
-          &.braslet {
-            position: absolute !important;
-            bottom: -45px !important;
-            height: unset !important;
-          }
         }
 
 
@@ -574,8 +569,11 @@ export default defineComponent({
         }
 
         // img {
-        //   position: unset !important;
-        //   height: 100% !important;
+        //   &.ritual {
+        //     position: absolute !important;
+        //     top: unset !important;
+        //     height: unset !important;
+        //   }
         // }
       }
 
